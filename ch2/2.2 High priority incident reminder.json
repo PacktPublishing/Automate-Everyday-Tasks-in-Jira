@@ -1,1 +1,108 @@
-{"rules":[{"id":1007481,"clientKey":"22d183d6-a2b9-3ebd-a565-98656bba7b25","name":"High priority incident reminder","state":"ENABLED","description":null,"authorAccountId":"557058:bbbd7736-9ab8-4e73-b08e-801eefa636ff","actor":{"type":"ACCOUNT_ID","value":"557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"},"created":1596480459564,"updated":1596480459564,"trigger":{"id":"18947001","component":"TRIGGER","parentId":null,"conditionParentId":null,"schemaVersion":1,"type":"jira.sla.threshold.trigger","value":{"customFieldId":"customfield_10033","thresholdType":"WILL_BREACH","thresholdValue":1800000},"children":[],"conditions":[]},"components":[{"id":"18947002","component":"CONDITION","parentId":null,"conditionParentId":null,"schemaVersion":1,"type":"jira.jql.condition","value":"type = Incident AND priority in (Highest, High) AND updated >= \"-15m\"","children":[],"conditions":[]},{"id":"18947003","component":"ACTION","parentId":null,"conditionParentId":null,"schemaVersion":3,"type":"jira.issue.outgoing.email","value":{"from":"","fromName":"","replyTo":"","to":[{"type":"COPY","value":"assignee"}],"cc":[],"bcc":[],"subject":"Issue {{issue.key}} is about to breach without update","body":"The issue {{issue.key}} - {{issue.summary}} is about to breach in 30 minutes and requires an update.\n\nPlease add a comment to the above issue or update it as required.\n\nMany thanks,\nJira Automation","mimeType":"text/html","convertLineBreaks":true},"children":[],"conditions":[]}],"canOtherRuleTrigger":false,"notifyOnError":"FIRSTERROR","projects":[{"projectId":"10003","projectTypeKey":"service_desk"}],"labels":[],"tags":[{"id":616872,"tagType":"POLLING","tagValue":null}]}],"cloud":true}
+{
+	"rules": [
+		{
+			"id": 1007481,
+			"clientKey": "22d183d6-a2b9-3ebd-a565-98656bba7b25",
+			"name": "High priority incident reminder",
+			"state": "ENABLED",
+			"description": null,
+			"authorAccountId": "557058:bbbd7736-9ab8-4e73-b08e-801eefa636ff",
+			"actor": {
+				"type": "ACCOUNT_ID",
+				"value": "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+			},
+			"created": 1596480459564,
+			"updated": 1596480459564,
+			"trigger": {
+				"id": "18947001",
+				"component": "TRIGGER",
+				"parentId": null,
+				"conditionParentId": null,
+				"schemaVersion": 1,
+				"type": "jira.sla.threshold.trigger",
+				"value": {
+					"customFieldId": "customfield_10033",
+					"thresholdType": "WILL_BREACH",
+					"thresholdValue": 1800000
+				},
+				"children": [
+
+				],
+				"conditions": [
+
+				]
+			},
+			"components": [
+				{
+					"id": "18947002",
+					"component": "CONDITION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 1,
+					"type": "jira.jql.condition",
+					"value": "type = Incident AND priority in (Highest, High) AND updated >= \"-15m\"",
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				},
+				{
+					"id": "18947003",
+					"component": "ACTION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 3,
+					"type": "jira.issue.outgoing.email",
+					"value": {
+						"from": "",
+						"fromName": "",
+						"replyTo": "",
+						"to": [
+							{
+								"type": "COPY",
+								"value": "assignee"
+							}
+						],
+						"cc": [
+
+						],
+						"bcc": [
+
+						],
+						"subject": "Issue {{issue.key}} is about to breach without update",
+						"body": "The issue {{issue.key}} - {{issue.summary}} is about to breach in 30 minutes and requires an update.\n\nPlease add a comment to the above issue or update it as required.\n\nMany thanks,\nJira Automation",
+						"mimeType": "text/html",
+						"convertLineBreaks": true
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				}
+			],
+			"canOtherRuleTrigger": false,
+			"notifyOnError": "FIRSTERROR",
+			"projects": [
+				{
+					"projectId": "10003",
+					"projectTypeKey": "service_desk"
+				}
+			],
+			"labels": [
+
+			],
+			"tags": [
+				{
+					"id": 616872,
+					"tagType": "POLLING",
+					"tagValue": null
+				}
+			]
+		}
+	],
+	"cloud": true
+}

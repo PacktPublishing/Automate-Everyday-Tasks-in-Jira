@@ -1,1 +1,1062 @@
-{"rules":[{"id":1003345,"clientKey":"22d183d6-a2b9-3ebd-a565-98656bba7b25","name":"Incident priority matrix","state":"ENABLED","description":null,"authorAccountId":"557058:bbbd7736-9ab8-4e73-b08e-801eefa636ff","actor":{"type":"ACCOUNT_ID","value":"557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"},"created":1596374905316,"updated":1596630998650,"trigger":{"id":"19097466","component":"TRIGGER","parentId":null,"conditionParentId":null,"schemaVersion":2,"type":"jira.issue.field.changed","value":{"fields":[{"value":"Impact","type":"fieldName"},{"value":"Urgency","type":"fieldName"}],"actions":["create","edit"]},"children":[],"conditions":[]},"components":[{"id":"19097467","component":"CONDITION","parentId":null,"conditionParentId":null,"schemaVersion":4,"type":"jira.user.condition","value":{"conditions":[{"field":"reporter","check":"NOT_IN_GROUP","criteria":[{"type":"ID","value":"VIP"}]}],"operator":"AND"},"children":[],"conditions":[]},{"id":"19097468","component":"CONDITION","parentId":null,"conditionParentId":null,"schemaVersion":1,"type":"jira.condition.container.block","value":null,"children":[{"id":"19097469","component":"CONDITION_BLOCK","parentId":"19097468","conditionParentId":null,"schemaVersion":1,"type":"jira.condition.if.block","value":{"conditionMatchType":"ALL"},"children":[{"id":"19097472","component":"ACTION","parentId":"19097469","conditionParentId":null,"schemaVersion":8,"type":"jira.issue.edit","value":{"operations":[{"field":{"type":"ID","value":"priority"},"fieldType":"priority","type":"SET","value":{"type":"ID","value":"1"}}],"advancedFields":null,"sendNotifications":true,"useLegacyRendering":false},"children":[],"conditions":[]}],"conditions":[{"id":"19097470","component":"CONDITION","parentId":null,"conditionParentId":"19097469","schemaVersion":3,"type":"jira.issue.condition","value":{"selectedField":{"type":"ID","value":"customfield_10004"},"selectedFieldType":"com.atlassian.jira.plugin.system.customfieldtypes:select","comparison":"EQUALS","compareValue":{"type":"NAME","modifier":null,"value":"High","multiValue":false,"source":null}},"children":[],"conditions":[]},{"id":"19097471","component":"CONDITION","parentId":null,"conditionParentId":"19097469","schemaVersion":3,"type":"jira.issue.condition","value":{"selectedField":{"type":"ID","value":"customfield_10037"},"selectedFieldType":"com.atlassian.jira.plugin.system.customfieldtypes:select","comparison":"EQUALS","compareValue":{"type":"NAME","modifier":null,"value":"High","multiValue":false,"source":null}},"children":[],"conditions":[]}]},{"id":"19097473","component":"CONDITION_BLOCK","parentId":"19097468","conditionParentId":null,"schemaVersion":1,"type":"jira.condition.if.block","value":{"conditionMatchType":"ALL"},"children":[{"id":"19097476","component":"ACTION","parentId":"19097473","conditionParentId":null,"schemaVersion":8,"type":"jira.issue.edit","value":{"operations":[{"field":{"type":"ID","value":"priority"},"fieldType":"priority","type":"SET","value":{"type":"ID","value":"2"}}],"advancedFields":null,"sendNotifications":true,"useLegacyRendering":false},"children":[],"conditions":[]}],"conditions":[{"id":"19097474","component":"CONDITION","parentId":null,"conditionParentId":"19097473","schemaVersion":3,"type":"jira.issue.condition","value":{"selectedField":{"type":"ID","value":"customfield_10004"},"selectedFieldType":"com.atlassian.jira.plugin.system.customfieldtypes:select","comparison":"EQUALS","compareValue":{"type":"NAME","modifier":null,"value":"High","multiValue":false,"source":null}},"children":[],"conditions":[]},{"id":"19097475","component":"CONDITION","parentId":null,"conditionParentId":"19097473","schemaVersion":3,"type":"jira.issue.condition","value":{"selectedField":{"type":"ID","value":"customfield_10037"},"selectedFieldType":"com.atlassian.jira.plugin.system.customfieldtypes:select","comparison":"EQUALS","compareValue":{"type":"NAME","modifier":null,"value":"Medium","multiValue":false,"source":null}},"children":[],"conditions":[]}]},{"id":"19097477","component":"CONDITION_BLOCK","parentId":"19097468","conditionParentId":null,"schemaVersion":1,"type":"jira.condition.if.block","value":{"conditionMatchType":"ALL"},"children":[{"id":"19097480","component":"ACTION","parentId":"19097477","conditionParentId":null,"schemaVersion":8,"type":"jira.issue.edit","value":{"operations":[{"field":{"type":"ID","value":"priority"},"fieldType":"priority","type":"SET","value":{"type":"ID","value":"3"}}],"advancedFields":null,"sendNotifications":true,"useLegacyRendering":false},"children":[],"conditions":[]}],"conditions":[{"id":"19097478","component":"CONDITION","parentId":null,"conditionParentId":"19097477","schemaVersion":3,"type":"jira.issue.condition","value":{"selectedField":{"type":"ID","value":"customfield_10004"},"selectedFieldType":"com.atlassian.jira.plugin.system.customfieldtypes:select","comparison":"EQUALS","compareValue":{"type":"NAME","modifier":null,"value":"High","multiValue":false,"source":null}},"children":[],"conditions":[]},{"id":"19097479","component":"CONDITION","parentId":null,"conditionParentId":"19097477","schemaVersion":3,"type":"jira.issue.condition","value":{"selectedField":{"type":"ID","value":"customfield_10037"},"selectedFieldType":"com.atlassian.jira.plugin.system.customfieldtypes:select","comparison":"EQUALS","compareValue":{"type":"NAME","modifier":null,"value":"Low","multiValue":false,"source":null}},"children":[],"conditions":[]}]},{"id":"19097481","component":"CONDITION_BLOCK","parentId":"19097468","conditionParentId":null,"schemaVersion":1,"type":"jira.condition.if.block","value":{"conditionMatchType":"ALL"},"children":[{"id":"19097484","component":"ACTION","parentId":"19097481","conditionParentId":null,"schemaVersion":8,"type":"jira.issue.edit","value":{"operations":[{"field":{"type":"ID","value":"priority"},"fieldType":"priority","type":"SET","value":{"type":"ID","value":"2"}}],"advancedFields":null,"sendNotifications":true,"useLegacyRendering":false},"children":[],"conditions":[]}],"conditions":[{"id":"19097482","component":"CONDITION","parentId":null,"conditionParentId":"19097481","schemaVersion":3,"type":"jira.issue.condition","value":{"selectedField":{"type":"ID","value":"customfield_10004"},"selectedFieldType":"com.atlassian.jira.plugin.system.customfieldtypes:select","comparison":"EQUALS","compareValue":{"type":"NAME","modifier":null,"value":"Medium","multiValue":false,"source":null}},"children":[],"conditions":[]},{"id":"19097483","component":"CONDITION","parentId":null,"conditionParentId":"19097481","schemaVersion":3,"type":"jira.issue.condition","value":{"selectedField":{"type":"ID","value":"customfield_10037"},"selectedFieldType":"com.atlassian.jira.plugin.system.customfieldtypes:select","comparison":"EQUALS","compareValue":{"type":"NAME","modifier":null,"value":"High","multiValue":false,"source":null}},"children":[],"conditions":[]}]},{"id":"19097485","component":"CONDITION_BLOCK","parentId":"19097468","conditionParentId":null,"schemaVersion":1,"type":"jira.condition.if.block","value":{"conditionMatchType":"ALL"},"children":[{"id":"19097488","component":"ACTION","parentId":"19097485","conditionParentId":null,"schemaVersion":8,"type":"jira.issue.edit","value":{"operations":[{"field":{"type":"ID","value":"priority"},"fieldType":"priority","type":"SET","value":{"type":"ID","value":"3"}}],"advancedFields":null,"sendNotifications":true,"useLegacyRendering":false},"children":[],"conditions":[]}],"conditions":[{"id":"19097486","component":"CONDITION","parentId":null,"conditionParentId":"19097485","schemaVersion":3,"type":"jira.issue.condition","value":{"selectedField":{"type":"ID","value":"customfield_10004"},"selectedFieldType":"com.atlassian.jira.plugin.system.customfieldtypes:select","comparison":"EQUALS","compareValue":{"type":"NAME","modifier":null,"value":"Medium","multiValue":false,"source":null}},"children":[],"conditions":[]},{"id":"19097487","component":"CONDITION","parentId":null,"conditionParentId":"19097485","schemaVersion":3,"type":"jira.issue.condition","value":{"selectedField":{"type":"ID","value":"customfield_10037"},"selectedFieldType":"com.atlassian.jira.plugin.system.customfieldtypes:select","comparison":"EQUALS","compareValue":{"type":"NAME","modifier":null,"value":"Medium","multiValue":false,"source":null}},"children":[],"conditions":[]}]},{"id":"19097489","component":"CONDITION_BLOCK","parentId":"19097468","conditionParentId":null,"schemaVersion":1,"type":"jira.condition.if.block","value":{"conditionMatchType":"ALL"},"children":[{"id":"19097492","component":"ACTION","parentId":"19097489","conditionParentId":null,"schemaVersion":8,"type":"jira.issue.edit","value":{"operations":[{"field":{"type":"ID","value":"priority"},"fieldType":"priority","type":"SET","value":{"type":"ID","value":"4"}}],"advancedFields":null,"sendNotifications":true,"useLegacyRendering":false},"children":[],"conditions":[]}],"conditions":[{"id":"19097490","component":"CONDITION","parentId":null,"conditionParentId":"19097489","schemaVersion":3,"type":"jira.issue.condition","value":{"selectedField":{"type":"ID","value":"customfield_10004"},"selectedFieldType":"com.atlassian.jira.plugin.system.customfieldtypes:select","comparison":"EQUALS","compareValue":{"type":"NAME","modifier":null,"value":"Medium","multiValue":false,"source":null}},"children":[],"conditions":[]},{"id":"19097491","component":"CONDITION","parentId":null,"conditionParentId":"19097489","schemaVersion":3,"type":"jira.issue.condition","value":{"selectedField":{"type":"ID","value":"customfield_10037"},"selectedFieldType":"com.atlassian.jira.plugin.system.customfieldtypes:select","comparison":"EQUALS","compareValue":{"type":"NAME","modifier":null,"value":"Low","multiValue":false,"source":null}},"children":[],"conditions":[]}]},{"id":"19097493","component":"CONDITION_BLOCK","parentId":"19097468","conditionParentId":null,"schemaVersion":1,"type":"jira.condition.if.block","value":{"conditionMatchType":"ALL"},"children":[{"id":"19097496","component":"ACTION","parentId":"19097493","conditionParentId":null,"schemaVersion":8,"type":"jira.issue.edit","value":{"operations":[{"field":{"type":"ID","value":"priority"},"fieldType":"priority","type":"SET","value":{"type":"ID","value":"3"}}],"advancedFields":null,"sendNotifications":true,"useLegacyRendering":false},"children":[],"conditions":[]}],"conditions":[{"id":"19097494","component":"CONDITION","parentId":null,"conditionParentId":"19097493","schemaVersion":3,"type":"jira.issue.condition","value":{"selectedField":{"type":"ID","value":"customfield_10004"},"selectedFieldType":"com.atlassian.jira.plugin.system.customfieldtypes:select","comparison":"EQUALS","compareValue":{"type":"NAME","modifier":null,"value":"Low","multiValue":false,"source":null}},"children":[],"conditions":[]},{"id":"19097495","component":"CONDITION","parentId":null,"conditionParentId":"19097493","schemaVersion":3,"type":"jira.issue.condition","value":{"selectedField":{"type":"ID","value":"customfield_10037"},"selectedFieldType":"com.atlassian.jira.plugin.system.customfieldtypes:select","comparison":"EQUALS","compareValue":{"type":"NAME","modifier":null,"value":"High","multiValue":false,"source":null}},"children":[],"conditions":[]}]},{"id":"19097497","component":"CONDITION_BLOCK","parentId":"19097468","conditionParentId":null,"schemaVersion":1,"type":"jira.condition.if.block","value":{"conditionMatchType":"ALL"},"children":[{"id":"19097500","component":"ACTION","parentId":"19097497","conditionParentId":null,"schemaVersion":8,"type":"jira.issue.edit","value":{"operations":[{"field":{"type":"ID","value":"priority"},"fieldType":"priority","type":"SET","value":{"type":"ID","value":"4"}}],"advancedFields":null,"sendNotifications":true,"useLegacyRendering":false},"children":[],"conditions":[]}],"conditions":[{"id":"19097498","component":"CONDITION","parentId":null,"conditionParentId":"19097497","schemaVersion":3,"type":"jira.issue.condition","value":{"selectedField":{"type":"ID","value":"customfield_10004"},"selectedFieldType":"com.atlassian.jira.plugin.system.customfieldtypes:select","comparison":"EQUALS","compareValue":{"type":"NAME","modifier":null,"value":"Low","multiValue":false,"source":null}},"children":[],"conditions":[]},{"id":"19097499","component":"CONDITION","parentId":null,"conditionParentId":"19097497","schemaVersion":3,"type":"jira.issue.condition","value":{"selectedField":{"type":"ID","value":"customfield_10037"},"selectedFieldType":"com.atlassian.jira.plugin.system.customfieldtypes:select","comparison":"EQUALS","compareValue":{"type":"NAME","modifier":null,"value":"Medium","multiValue":false,"source":null}},"children":[],"conditions":[]}]},{"id":"19097501","component":"CONDITION_BLOCK","parentId":"19097468","conditionParentId":null,"schemaVersion":1,"type":"jira.condition.if.block","value":{"conditionMatchType":"ALL"},"children":[{"id":"19097504","component":"ACTION","parentId":"19097501","conditionParentId":null,"schemaVersion":8,"type":"jira.issue.edit","value":{"operations":[{"field":{"type":"ID","value":"priority"},"fieldType":"priority","type":"SET","value":{"type":"ID","value":"5"}}],"advancedFields":null,"sendNotifications":true,"useLegacyRendering":false},"children":[],"conditions":[]}],"conditions":[{"id":"19097502","component":"CONDITION","parentId":null,"conditionParentId":"19097501","schemaVersion":3,"type":"jira.issue.condition","value":{"selectedField":{"type":"ID","value":"customfield_10004"},"selectedFieldType":"com.atlassian.jira.plugin.system.customfieldtypes:select","comparison":"EQUALS","compareValue":{"type":"NAME","modifier":null,"value":"Low","multiValue":false,"source":null}},"children":[],"conditions":[]},{"id":"19097503","component":"CONDITION","parentId":null,"conditionParentId":"19097501","schemaVersion":3,"type":"jira.issue.condition","value":{"selectedField":{"type":"ID","value":"customfield_10037"},"selectedFieldType":"com.atlassian.jira.plugin.system.customfieldtypes:select","comparison":"EQUALS","compareValue":{"type":"NAME","modifier":null,"value":"Low","multiValue":false,"source":null}},"children":[],"conditions":[]}]}],"conditions":[]}],"canOtherRuleTrigger":false,"notifyOnError":"FIRSTERROR","projects":[{"projectId":"10003","projectTypeKey":"service_desk"}],"labels":[],"tags":[]}],"cloud":true}
+{
+	"rules": [
+		{
+			"id": 1003345,
+			"clientKey": "22d183d6-a2b9-3ebd-a565-98656bba7b25",
+			"name": "Incident priority matrix",
+			"state": "ENABLED",
+			"description": null,
+			"authorAccountId": "557058:bbbd7736-9ab8-4e73-b08e-801eefa636ff",
+			"actor": {
+				"type": "ACCOUNT_ID",
+				"value": "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+			},
+			"created": 1596374905316,
+			"updated": 1596630998650,
+			"trigger": {
+				"id": "19097466",
+				"component": "TRIGGER",
+				"parentId": null,
+				"conditionParentId": null,
+				"schemaVersion": 2,
+				"type": "jira.issue.field.changed",
+				"value": {
+					"fields": [
+						{
+							"value": "Impact",
+							"type": "fieldName"
+						},
+						{
+							"value": "Urgency",
+							"type": "fieldName"
+						}
+					],
+					"actions": [
+						"create",
+						"edit"
+					]
+				},
+				"children": [
+
+				],
+				"conditions": [
+
+				]
+			},
+			"components": [
+				{
+					"id": "19097467",
+					"component": "CONDITION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 4,
+					"type": "jira.user.condition",
+					"value": {
+						"conditions": [
+							{
+								"field": "reporter",
+								"check": "NOT_IN_GROUP",
+								"criteria": [
+									{
+										"type": "ID",
+										"value": "VIP"
+									}
+								]
+							}
+						],
+						"operator": "AND"
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				},
+				{
+					"id": "19097468",
+					"component": "CONDITION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 1,
+					"type": "jira.condition.container.block",
+					"value": null,
+					"children": [
+						{
+							"id": "19097469",
+							"component": "CONDITION_BLOCK",
+							"parentId": "19097468",
+							"conditionParentId": null,
+							"schemaVersion": 1,
+							"type": "jira.condition.if.block",
+							"value": {
+								"conditionMatchType": "ALL"
+							},
+							"children": [
+								{
+									"id": "19097472",
+									"component": "ACTION",
+									"parentId": "19097469",
+									"conditionParentId": null,
+									"schemaVersion": 8,
+									"type": "jira.issue.edit",
+									"value": {
+										"operations": [
+											{
+												"field": {
+													"type": "ID",
+													"value": "priority"
+												},
+												"fieldType": "priority",
+												"type": "SET",
+												"value": {
+													"type": "ID",
+													"value": "1"
+												}
+											}
+										],
+										"advancedFields": null,
+										"sendNotifications": true,
+										"useLegacyRendering": false
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							],
+							"conditions": [
+								{
+									"id": "19097470",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": "19097469",
+									"schemaVersion": 3,
+									"type": "jira.issue.condition",
+									"value": {
+										"selectedField": {
+											"type": "ID",
+											"value": "customfield_10004"
+										},
+										"selectedFieldType": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+										"comparison": "EQUALS",
+										"compareValue": {
+											"type": "NAME",
+											"modifier": null,
+											"value": "High",
+											"multiValue": false,
+											"source": null
+										}
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								},
+								{
+									"id": "19097471",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": "19097469",
+									"schemaVersion": 3,
+									"type": "jira.issue.condition",
+									"value": {
+										"selectedField": {
+											"type": "ID",
+											"value": "customfield_10037"
+										},
+										"selectedFieldType": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+										"comparison": "EQUALS",
+										"compareValue": {
+											"type": "NAME",
+											"modifier": null,
+											"value": "High",
+											"multiValue": false,
+											"source": null
+										}
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							]
+						},
+						{
+							"id": "19097473",
+							"component": "CONDITION_BLOCK",
+							"parentId": "19097468",
+							"conditionParentId": null,
+							"schemaVersion": 1,
+							"type": "jira.condition.if.block",
+							"value": {
+								"conditionMatchType": "ALL"
+							},
+							"children": [
+								{
+									"id": "19097476",
+									"component": "ACTION",
+									"parentId": "19097473",
+									"conditionParentId": null,
+									"schemaVersion": 8,
+									"type": "jira.issue.edit",
+									"value": {
+										"operations": [
+											{
+												"field": {
+													"type": "ID",
+													"value": "priority"
+												},
+												"fieldType": "priority",
+												"type": "SET",
+												"value": {
+													"type": "ID",
+													"value": "2"
+												}
+											}
+										],
+										"advancedFields": null,
+										"sendNotifications": true,
+										"useLegacyRendering": false
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							],
+							"conditions": [
+								{
+									"id": "19097474",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": "19097473",
+									"schemaVersion": 3,
+									"type": "jira.issue.condition",
+									"value": {
+										"selectedField": {
+											"type": "ID",
+											"value": "customfield_10004"
+										},
+										"selectedFieldType": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+										"comparison": "EQUALS",
+										"compareValue": {
+											"type": "NAME",
+											"modifier": null,
+											"value": "High",
+											"multiValue": false,
+											"source": null
+										}
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								},
+								{
+									"id": "19097475",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": "19097473",
+									"schemaVersion": 3,
+									"type": "jira.issue.condition",
+									"value": {
+										"selectedField": {
+											"type": "ID",
+											"value": "customfield_10037"
+										},
+										"selectedFieldType": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+										"comparison": "EQUALS",
+										"compareValue": {
+											"type": "NAME",
+											"modifier": null,
+											"value": "Medium",
+											"multiValue": false,
+											"source": null
+										}
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							]
+						},
+						{
+							"id": "19097477",
+							"component": "CONDITION_BLOCK",
+							"parentId": "19097468",
+							"conditionParentId": null,
+							"schemaVersion": 1,
+							"type": "jira.condition.if.block",
+							"value": {
+								"conditionMatchType": "ALL"
+							},
+							"children": [
+								{
+									"id": "19097480",
+									"component": "ACTION",
+									"parentId": "19097477",
+									"conditionParentId": null,
+									"schemaVersion": 8,
+									"type": "jira.issue.edit",
+									"value": {
+										"operations": [
+											{
+												"field": {
+													"type": "ID",
+													"value": "priority"
+												},
+												"fieldType": "priority",
+												"type": "SET",
+												"value": {
+													"type": "ID",
+													"value": "3"
+												}
+											}
+										],
+										"advancedFields": null,
+										"sendNotifications": true,
+										"useLegacyRendering": false
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							],
+							"conditions": [
+								{
+									"id": "19097478",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": "19097477",
+									"schemaVersion": 3,
+									"type": "jira.issue.condition",
+									"value": {
+										"selectedField": {
+											"type": "ID",
+											"value": "customfield_10004"
+										},
+										"selectedFieldType": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+										"comparison": "EQUALS",
+										"compareValue": {
+											"type": "NAME",
+											"modifier": null,
+											"value": "High",
+											"multiValue": false,
+											"source": null
+										}
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								},
+								{
+									"id": "19097479",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": "19097477",
+									"schemaVersion": 3,
+									"type": "jira.issue.condition",
+									"value": {
+										"selectedField": {
+											"type": "ID",
+											"value": "customfield_10037"
+										},
+										"selectedFieldType": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+										"comparison": "EQUALS",
+										"compareValue": {
+											"type": "NAME",
+											"modifier": null,
+											"value": "Low",
+											"multiValue": false,
+											"source": null
+										}
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							]
+						},
+						{
+							"id": "19097481",
+							"component": "CONDITION_BLOCK",
+							"parentId": "19097468",
+							"conditionParentId": null,
+							"schemaVersion": 1,
+							"type": "jira.condition.if.block",
+							"value": {
+								"conditionMatchType": "ALL"
+							},
+							"children": [
+								{
+									"id": "19097484",
+									"component": "ACTION",
+									"parentId": "19097481",
+									"conditionParentId": null,
+									"schemaVersion": 8,
+									"type": "jira.issue.edit",
+									"value": {
+										"operations": [
+											{
+												"field": {
+													"type": "ID",
+													"value": "priority"
+												},
+												"fieldType": "priority",
+												"type": "SET",
+												"value": {
+													"type": "ID",
+													"value": "2"
+												}
+											}
+										],
+										"advancedFields": null,
+										"sendNotifications": true,
+										"useLegacyRendering": false
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							],
+							"conditions": [
+								{
+									"id": "19097482",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": "19097481",
+									"schemaVersion": 3,
+									"type": "jira.issue.condition",
+									"value": {
+										"selectedField": {
+											"type": "ID",
+											"value": "customfield_10004"
+										},
+										"selectedFieldType": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+										"comparison": "EQUALS",
+										"compareValue": {
+											"type": "NAME",
+											"modifier": null,
+											"value": "Medium",
+											"multiValue": false,
+											"source": null
+										}
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								},
+								{
+									"id": "19097483",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": "19097481",
+									"schemaVersion": 3,
+									"type": "jira.issue.condition",
+									"value": {
+										"selectedField": {
+											"type": "ID",
+											"value": "customfield_10037"
+										},
+										"selectedFieldType": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+										"comparison": "EQUALS",
+										"compareValue": {
+											"type": "NAME",
+											"modifier": null,
+											"value": "High",
+											"multiValue": false,
+											"source": null
+										}
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							]
+						},
+						{
+							"id": "19097485",
+							"component": "CONDITION_BLOCK",
+							"parentId": "19097468",
+							"conditionParentId": null,
+							"schemaVersion": 1,
+							"type": "jira.condition.if.block",
+							"value": {
+								"conditionMatchType": "ALL"
+							},
+							"children": [
+								{
+									"id": "19097488",
+									"component": "ACTION",
+									"parentId": "19097485",
+									"conditionParentId": null,
+									"schemaVersion": 8,
+									"type": "jira.issue.edit",
+									"value": {
+										"operations": [
+											{
+												"field": {
+													"type": "ID",
+													"value": "priority"
+												},
+												"fieldType": "priority",
+												"type": "SET",
+												"value": {
+													"type": "ID",
+													"value": "3"
+												}
+											}
+										],
+										"advancedFields": null,
+										"sendNotifications": true,
+										"useLegacyRendering": false
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							],
+							"conditions": [
+								{
+									"id": "19097486",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": "19097485",
+									"schemaVersion": 3,
+									"type": "jira.issue.condition",
+									"value": {
+										"selectedField": {
+											"type": "ID",
+											"value": "customfield_10004"
+										},
+										"selectedFieldType": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+										"comparison": "EQUALS",
+										"compareValue": {
+											"type": "NAME",
+											"modifier": null,
+											"value": "Medium",
+											"multiValue": false,
+											"source": null
+										}
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								},
+								{
+									"id": "19097487",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": "19097485",
+									"schemaVersion": 3,
+									"type": "jira.issue.condition",
+									"value": {
+										"selectedField": {
+											"type": "ID",
+											"value": "customfield_10037"
+										},
+										"selectedFieldType": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+										"comparison": "EQUALS",
+										"compareValue": {
+											"type": "NAME",
+											"modifier": null,
+											"value": "Medium",
+											"multiValue": false,
+											"source": null
+										}
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							]
+						},
+						{
+							"id": "19097489",
+							"component": "CONDITION_BLOCK",
+							"parentId": "19097468",
+							"conditionParentId": null,
+							"schemaVersion": 1,
+							"type": "jira.condition.if.block",
+							"value": {
+								"conditionMatchType": "ALL"
+							},
+							"children": [
+								{
+									"id": "19097492",
+									"component": "ACTION",
+									"parentId": "19097489",
+									"conditionParentId": null,
+									"schemaVersion": 8,
+									"type": "jira.issue.edit",
+									"value": {
+										"operations": [
+											{
+												"field": {
+													"type": "ID",
+													"value": "priority"
+												},
+												"fieldType": "priority",
+												"type": "SET",
+												"value": {
+													"type": "ID",
+													"value": "4"
+												}
+											}
+										],
+										"advancedFields": null,
+										"sendNotifications": true,
+										"useLegacyRendering": false
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							],
+							"conditions": [
+								{
+									"id": "19097490",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": "19097489",
+									"schemaVersion": 3,
+									"type": "jira.issue.condition",
+									"value": {
+										"selectedField": {
+											"type": "ID",
+											"value": "customfield_10004"
+										},
+										"selectedFieldType": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+										"comparison": "EQUALS",
+										"compareValue": {
+											"type": "NAME",
+											"modifier": null,
+											"value": "Medium",
+											"multiValue": false,
+											"source": null
+										}
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								},
+								{
+									"id": "19097491",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": "19097489",
+									"schemaVersion": 3,
+									"type": "jira.issue.condition",
+									"value": {
+										"selectedField": {
+											"type": "ID",
+											"value": "customfield_10037"
+										},
+										"selectedFieldType": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+										"comparison": "EQUALS",
+										"compareValue": {
+											"type": "NAME",
+											"modifier": null,
+											"value": "Low",
+											"multiValue": false,
+											"source": null
+										}
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							]
+						},
+						{
+							"id": "19097493",
+							"component": "CONDITION_BLOCK",
+							"parentId": "19097468",
+							"conditionParentId": null,
+							"schemaVersion": 1,
+							"type": "jira.condition.if.block",
+							"value": {
+								"conditionMatchType": "ALL"
+							},
+							"children": [
+								{
+									"id": "19097496",
+									"component": "ACTION",
+									"parentId": "19097493",
+									"conditionParentId": null,
+									"schemaVersion": 8,
+									"type": "jira.issue.edit",
+									"value": {
+										"operations": [
+											{
+												"field": {
+													"type": "ID",
+													"value": "priority"
+												},
+												"fieldType": "priority",
+												"type": "SET",
+												"value": {
+													"type": "ID",
+													"value": "3"
+												}
+											}
+										],
+										"advancedFields": null,
+										"sendNotifications": true,
+										"useLegacyRendering": false
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							],
+							"conditions": [
+								{
+									"id": "19097494",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": "19097493",
+									"schemaVersion": 3,
+									"type": "jira.issue.condition",
+									"value": {
+										"selectedField": {
+											"type": "ID",
+											"value": "customfield_10004"
+										},
+										"selectedFieldType": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+										"comparison": "EQUALS",
+										"compareValue": {
+											"type": "NAME",
+											"modifier": null,
+											"value": "Low",
+											"multiValue": false,
+											"source": null
+										}
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								},
+								{
+									"id": "19097495",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": "19097493",
+									"schemaVersion": 3,
+									"type": "jira.issue.condition",
+									"value": {
+										"selectedField": {
+											"type": "ID",
+											"value": "customfield_10037"
+										},
+										"selectedFieldType": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+										"comparison": "EQUALS",
+										"compareValue": {
+											"type": "NAME",
+											"modifier": null,
+											"value": "High",
+											"multiValue": false,
+											"source": null
+										}
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							]
+						},
+						{
+							"id": "19097497",
+							"component": "CONDITION_BLOCK",
+							"parentId": "19097468",
+							"conditionParentId": null,
+							"schemaVersion": 1,
+							"type": "jira.condition.if.block",
+							"value": {
+								"conditionMatchType": "ALL"
+							},
+							"children": [
+								{
+									"id": "19097500",
+									"component": "ACTION",
+									"parentId": "19097497",
+									"conditionParentId": null,
+									"schemaVersion": 8,
+									"type": "jira.issue.edit",
+									"value": {
+										"operations": [
+											{
+												"field": {
+													"type": "ID",
+													"value": "priority"
+												},
+												"fieldType": "priority",
+												"type": "SET",
+												"value": {
+													"type": "ID",
+													"value": "4"
+												}
+											}
+										],
+										"advancedFields": null,
+										"sendNotifications": true,
+										"useLegacyRendering": false
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							],
+							"conditions": [
+								{
+									"id": "19097498",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": "19097497",
+									"schemaVersion": 3,
+									"type": "jira.issue.condition",
+									"value": {
+										"selectedField": {
+											"type": "ID",
+											"value": "customfield_10004"
+										},
+										"selectedFieldType": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+										"comparison": "EQUALS",
+										"compareValue": {
+											"type": "NAME",
+											"modifier": null,
+											"value": "Low",
+											"multiValue": false,
+											"source": null
+										}
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								},
+								{
+									"id": "19097499",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": "19097497",
+									"schemaVersion": 3,
+									"type": "jira.issue.condition",
+									"value": {
+										"selectedField": {
+											"type": "ID",
+											"value": "customfield_10037"
+										},
+										"selectedFieldType": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+										"comparison": "EQUALS",
+										"compareValue": {
+											"type": "NAME",
+											"modifier": null,
+											"value": "Medium",
+											"multiValue": false,
+											"source": null
+										}
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							]
+						},
+						{
+							"id": "19097501",
+							"component": "CONDITION_BLOCK",
+							"parentId": "19097468",
+							"conditionParentId": null,
+							"schemaVersion": 1,
+							"type": "jira.condition.if.block",
+							"value": {
+								"conditionMatchType": "ALL"
+							},
+							"children": [
+								{
+									"id": "19097504",
+									"component": "ACTION",
+									"parentId": "19097501",
+									"conditionParentId": null,
+									"schemaVersion": 8,
+									"type": "jira.issue.edit",
+									"value": {
+										"operations": [
+											{
+												"field": {
+													"type": "ID",
+													"value": "priority"
+												},
+												"fieldType": "priority",
+												"type": "SET",
+												"value": {
+													"type": "ID",
+													"value": "5"
+												}
+											}
+										],
+										"advancedFields": null,
+										"sendNotifications": true,
+										"useLegacyRendering": false
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							],
+							"conditions": [
+								{
+									"id": "19097502",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": "19097501",
+									"schemaVersion": 3,
+									"type": "jira.issue.condition",
+									"value": {
+										"selectedField": {
+											"type": "ID",
+											"value": "customfield_10004"
+										},
+										"selectedFieldType": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+										"comparison": "EQUALS",
+										"compareValue": {
+											"type": "NAME",
+											"modifier": null,
+											"value": "Low",
+											"multiValue": false,
+											"source": null
+										}
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								},
+								{
+									"id": "19097503",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": "19097501",
+									"schemaVersion": 3,
+									"type": "jira.issue.condition",
+									"value": {
+										"selectedField": {
+											"type": "ID",
+											"value": "customfield_10037"
+										},
+										"selectedFieldType": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+										"comparison": "EQUALS",
+										"compareValue": {
+											"type": "NAME",
+											"modifier": null,
+											"value": "Low",
+											"multiValue": false,
+											"source": null
+										}
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							]
+						}
+					],
+					"conditions": [
+
+					]
+				}
+			],
+			"canOtherRuleTrigger": false,
+			"notifyOnError": "FIRSTERROR",
+			"projects": [
+				{
+					"projectId": "10003",
+					"projectTypeKey": "service_desk"
+				}
+			],
+			"labels": [
+
+			],
+			"tags": [
+
+			]
+		}
+	],
+	"cloud": true
+}

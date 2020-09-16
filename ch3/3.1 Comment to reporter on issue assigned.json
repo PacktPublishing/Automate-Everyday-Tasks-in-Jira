@@ -1,1 +1,94 @@
-{"rules":[{"id":1093850,"clientKey":"22d183d6-a2b9-3ebd-a565-98656bba7b25","name":"Comment to reporter on issue assigned","state":"ENABLED","description":null,"authorAccountId":"557058:bbbd7736-9ab8-4e73-b08e-801eefa636ff","actor":{"type":"ACCOUNT_ID","value":"557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"},"created":1598453439272,"updated":1598453439272,"trigger":{"id":"20559916","component":"TRIGGER","parentId":null,"conditionParentId":null,"schemaVersion":1,"type":"jira.issue.event.trigger:assigned","value":{"eventKey":"jira:issue_updated","issueEvent":"issue_assigned"},"children":[],"conditions":[]},"components":[{"id":"20559917","component":"CONDITION","parentId":null,"conditionParentId":null,"schemaVersion":1,"type":"jira.comparator.condition","value":{"first":"{{#changelog.assignee}}{{fromString}}{{/}}","second":"","operator":"EQUALS"},"children":[],"conditions":[]},{"id":"20559918","component":"ACTION","parentId":null,"conditionParentId":null,"schemaVersion":1,"type":"jira.issue.comment","value":{"comment":"Hi {{issue.reporter.displayName}}\n\nWe're now looking into your issue {{issue.summary}}.\n\nWe'll get back to you soon with an update.\n\n{{issue.assignee.displayName}}","publicComment":false,"commentVisibility":null,"sendNotifications":true,"addCommentOnce":true,"useLegacyRendering":false},"children":[],"conditions":[]}],"canOtherRuleTrigger":false,"notifyOnError":"FIRSTERROR","projects":[{"projectId":"10003","projectTypeKey":"service_desk"}],"labels":[],"tags":[]}],"cloud":true}
+{
+	"rules": [
+		{
+			"id": 1093850,
+			"clientKey": "22d183d6-a2b9-3ebd-a565-98656bba7b25",
+			"name": "Comment to reporter on issue assigned",
+			"state": "ENABLED",
+			"description": null,
+			"authorAccountId": "557058:bbbd7736-9ab8-4e73-b08e-801eefa636ff",
+			"actor": {
+				"type": "ACCOUNT_ID",
+				"value": "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+			},
+			"created": 1598453439272,
+			"updated": 1598453439272,
+			"trigger": {
+				"id": "20559916",
+				"component": "TRIGGER",
+				"parentId": null,
+				"conditionParentId": null,
+				"schemaVersion": 1,
+				"type": "jira.issue.event.trigger:assigned",
+				"value": {
+					"eventKey": "jira:issue_updated",
+					"issueEvent": "issue_assigned"
+				},
+				"children": [
+
+				],
+				"conditions": [
+
+				]
+			},
+			"components": [
+				{
+					"id": "20559917",
+					"component": "CONDITION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 1,
+					"type": "jira.comparator.condition",
+					"value": {
+						"first": "{{#changelog.assignee}}{{fromString}}{{/}}",
+						"second": "",
+						"operator": "EQUALS"
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				},
+				{
+					"id": "20559918",
+					"component": "ACTION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 1,
+					"type": "jira.issue.comment",
+					"value": {
+						"comment": "Hi {{issue.reporter.displayName}}\n\nWe're now looking into your issue {{issue.summary}}.\n\nWe'll get back to you soon with an update.\n\n{{issue.assignee.displayName}}",
+						"publicComment": false,
+						"commentVisibility": null,
+						"sendNotifications": true,
+						"addCommentOnce": true,
+						"useLegacyRendering": false
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				}
+			],
+			"canOtherRuleTrigger": false,
+			"notifyOnError": "FIRSTERROR",
+			"projects": [
+				{
+					"projectId": "10003",
+					"projectTypeKey": "service_desk"
+				}
+			],
+			"labels": [
+
+			],
+			"tags": [
+
+			]
+		}
+	],
+	"cloud": true
+}

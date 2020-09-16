@@ -1,1 +1,110 @@
-{"rules":[{"id":1081394,"clientKey":"22d183d6-a2b9-3ebd-a565-98656bba7b25","name":"Create onboarding sub-tasks","state":"ENABLED","description":null,"authorAccountId":"557058:bbbd7736-9ab8-4e73-b08e-801eefa636ff","actor":{"type":"ACCOUNT_ID","value":"557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"},"created":1598210608371,"updated":1598211944824,"trigger":{"id":"20330094","component":"TRIGGER","parentId":null,"conditionParentId":null,"schemaVersion":1,"type":"jira.issue.event.trigger:created","value":{"eventKey":"jira:issue_created","issueEvent":"issue_created"},"children":[],"conditions":[]},"components":[{"id":"20330095","component":"CONDITION","parentId":null,"conditionParentId":null,"schemaVersion":3,"type":"jira.issue.condition","value":{"selectedField":{"type":"ID","value":"customfield_10010"},"selectedFieldType":"com.atlassian.servicedesk:vp-origin","comparison":"EQUALS","compareValue":{"type":"NAME","modifier":null,"value":"Onboard new employees","multiValue":false,"source":null}},"children":[],"conditions":[]},{"id":"20330096","component":"ACTION","parentId":null,"conditionParentId":null,"schemaVersion":1,"type":"jira.issue.create.subtasks","value":{"subtasks":[{"id":"_subid_1598210499980","type":"10003","summary":"Provision laptop by {{issue.duedate.longDate}}"},{"id":"_subid_1598210550590","type":"10003","summary":"Setup desk phone by {{issue.duedate.longDate}}"}]},"children":[],"conditions":[]}],"canOtherRuleTrigger":false,"notifyOnError":"FIRSTERROR","projects":[{"projectId":"10003","projectTypeKey":"service_desk"}],"labels":[],"tags":[]}],"cloud":true}
+{
+	"rules": [
+		{
+			"id": 1081394,
+			"clientKey": "22d183d6-a2b9-3ebd-a565-98656bba7b25",
+			"name": "Create onboarding sub-tasks",
+			"state": "ENABLED",
+			"description": null,
+			"authorAccountId": "557058:bbbd7736-9ab8-4e73-b08e-801eefa636ff",
+			"actor": {
+				"type": "ACCOUNT_ID",
+				"value": "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+			},
+			"created": 1598210608371,
+			"updated": 1598211944824,
+			"trigger": {
+				"id": "20330094",
+				"component": "TRIGGER",
+				"parentId": null,
+				"conditionParentId": null,
+				"schemaVersion": 1,
+				"type": "jira.issue.event.trigger:created",
+				"value": {
+					"eventKey": "jira:issue_created",
+					"issueEvent": "issue_created"
+				},
+				"children": [
+
+				],
+				"conditions": [
+
+				]
+			},
+			"components": [
+				{
+					"id": "20330095",
+					"component": "CONDITION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 3,
+					"type": "jira.issue.condition",
+					"value": {
+						"selectedField": {
+							"type": "ID",
+							"value": "customfield_10010"
+						},
+						"selectedFieldType": "com.atlassian.servicedesk:vp-origin",
+						"comparison": "EQUALS",
+						"compareValue": {
+							"type": "NAME",
+							"modifier": null,
+							"value": "Onboard new employees",
+							"multiValue": false,
+							"source": null
+						}
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				},
+				{
+					"id": "20330096",
+					"component": "ACTION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 1,
+					"type": "jira.issue.create.subtasks",
+					"value": {
+						"subtasks": [
+							{
+								"id": "_subid_1598210499980",
+								"type": "10003",
+								"summary": "Provision laptop by {{issue.duedate.longDate}}"
+							},
+							{
+								"id": "_subid_1598210550590",
+								"type": "10003",
+								"summary": "Setup desk phone by {{issue.duedate.longDate}}"
+							}
+						]
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				}
+			],
+			"canOtherRuleTrigger": false,
+			"notifyOnError": "FIRSTERROR",
+			"projects": [
+				{
+					"projectId": "10003",
+					"projectTypeKey": "service_desk"
+				}
+			],
+			"labels": [
+
+			],
+			"tags": [
+
+			]
+		}
+	],
+	"cloud": true
+}
