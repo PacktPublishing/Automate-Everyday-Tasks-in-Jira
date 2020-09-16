@@ -1,0 +1,118 @@
+{
+	"rules": [
+		{
+			"id": 1161523,
+			"clientKey": "22d183d6-a2b9-3ebd-a565-98656bba7b25",
+			"name": "High priority after-hours notification",
+			"state": "ENABLED",
+			"description": null,
+			"authorAccountId": "557058:bbbd7736-9ab8-4e73-b08e-801eefa636ff",
+			"actor": {
+				"type": "ACCOUNT_ID",
+				"value": "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+			},
+			"created": 1600201075391,
+			"updated": 1600203187457,
+			"trigger": {
+				"id": "21893168",
+				"component": "TRIGGER",
+				"parentId": null,
+				"conditionParentId": null,
+				"schemaVersion": 1,
+				"type": "jira.issue.event.trigger:created",
+				"value": {
+					"eventKey": "jira:issue_created",
+					"issueEvent": "issue_created"
+				},
+				"children": [
+
+				],
+				"conditions": [
+
+				]
+			},
+			"components": [
+				{
+					"id": "21893169",
+					"component": "CONDITION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 3,
+					"type": "jira.issue.condition",
+					"value": {
+						"selectedField": {
+							"type": "ID",
+							"value": "priority"
+						},
+						"selectedFieldType": "priority",
+						"comparison": "ONE_OF",
+						"compareValue": {
+							"type": "ID",
+							"modifier": null,
+							"value": "[\"1\",\"2\"]",
+							"multiValue": true,
+							"source": null
+						}
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				},
+				{
+					"id": "21893170",
+					"component": "CONDITION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 1,
+					"type": "jira.jql.condition",
+					"value": "NOT(created > startOfDay(\"+8h\") AND created < endOfDay(\"-6h\"))",
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				},
+				{
+					"id": "21893171",
+					"component": "ACTION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 1,
+					"type": "twilio.notification.sms",
+					"value": {
+						"accountSid": "xxxxxx",
+						"authToken": "xxxxxx",
+						"fromNumber": "+1999999999",
+						"toNumber": "+44999999999",
+						"body": "A new incident, {{issue.key}} - {{issue.summary.abbreviate(100)}}, requires urgent attention!"
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				}
+			],
+			"canOtherRuleTrigger": false,
+			"notifyOnError": "FIRSTERROR",
+			"projects": [
+				{
+					"projectId": "10003",
+					"projectTypeKey": "service_desk"
+				}
+			],
+			"labels": [
+
+			],
+			"tags": [
+
+			]
+		}
+	],
+	"cloud": true
+}

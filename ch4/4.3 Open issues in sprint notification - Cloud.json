@@ -1,0 +1,108 @@
+{
+	"rules": [
+		{
+			"id": 1160993,
+			"clientKey": "22d183d6-a2b9-3ebd-a565-98656bba7b25",
+			"name": "Open issues in sprint notification",
+			"state": "ENABLED",
+			"description": null,
+			"authorAccountId": "557058:bbbd7736-9ab8-4e73-b08e-801eefa636ff",
+			"actor": {
+				"type": "ACCOUNT_ID",
+				"value": "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+			},
+			"created": 1600193921823,
+			"updated": 1600196925078,
+			"trigger": {
+				"id": "21884161",
+				"component": "TRIGGER",
+				"parentId": null,
+				"conditionParentId": null,
+				"schemaVersion": 1,
+				"type": "jira.jql.scheduled",
+				"value": {
+					"schedule": {
+						"cronExpression": "",
+						"method": "FIXED",
+						"rate": 1,
+						"rateInterval": 86400
+					},
+					"jql": "",
+					"executionMode": "nosearch",
+					"onlyUpdatedIssues": true,
+					"processIssuesInBulk": false
+				},
+				"children": [
+
+				],
+				"conditions": [
+
+				]
+			},
+			"components": [
+				{
+					"id": "21884162",
+					"component": "ACTION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 1,
+					"type": "jira.lookup.issues",
+					"value": {
+						"id": "_customsmartvalue_id_1600193519901",
+						"name": {
+							"type": "FREE",
+							"value": "lookupIssues"
+						},
+						"type": "JQL",
+						"query": {
+							"type": "SMART",
+							"value": "Sprint in openSprints() AND status != Done"
+						},
+						"lazy": false
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				},
+				{
+					"id": "21884163",
+					"component": "ACTION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 1,
+					"type": "slack.notification",
+					"value": {
+						"webhookUrl": "https://hooks.slack.com/services/xxxxxx",
+						"body": "Hey Team, we still have the following issues left to complete this sprint:\n\n{{#lookupIssues}}\n<{{url}}|{{key}} - {{summary}}>\n{{/}}\n\nWe can do this!",
+						"channel": "#sprint-updates",
+						"automationSender": true
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				}
+			],
+			"canOtherRuleTrigger": false,
+			"notifyOnError": "FIRSTERROR",
+			"projects": [
+				{
+					"projectId": "10004",
+					"projectTypeKey": "software"
+				}
+			],
+			"labels": [
+
+			],
+			"tags": [
+
+			]
+		}
+	],
+	"cloud": true
+}

@@ -1,0 +1,113 @@
+{
+	"cloud": false,
+	"rules": [
+		{
+			"id": 19,
+			"clientKey": "com.codebarrel.tenant.global",
+			"name": "Version release customer notification",
+			"state": "ENABLED",
+			"canOtherRuleTrigger": false,
+			"notifyOnError": "FIRSTERROR",
+			"authorAccountId": "admin",
+			"actorAccountId": "admin",
+			"created": 1600193763721,
+			"updated": 1600193763721,
+			"trigger": {
+				"id": "117",
+				"component": "TRIGGER",
+				"schemaVersion": 1,
+				"type": "jira.version.event.trigger:released",
+				"value": {
+					"versionNameFilter": ""
+				},
+				"children": [
+
+				],
+				"conditions": [
+
+				],
+				"optimisedIds": [
+
+				],
+				"newComponent": false
+			},
+			"components": [
+				{
+					"id": "118",
+					"component": "BRANCH",
+					"schemaVersion": 1,
+					"type": "jira.issue.related",
+					"value": {
+						"relatedType": "fixversion",
+						"jql": "",
+						"linkTypes": [
+
+						],
+						"onlyUpdatedIssues": false,
+						"processIssuesInBulk": false
+					},
+					"children": [
+						{
+							"id": "119",
+							"component": "ACTION",
+							"parentId": "118",
+							"schemaVersion": 3,
+							"type": "jira.issue.outgoing.email",
+							"value": {
+								"from": "",
+								"fromName": "",
+								"replyTo": "",
+								"to": [
+									{
+										"type": "REFERENCE",
+										"value": "Customers",
+										"additional": "GROUP"
+									}
+								],
+								"cc": [
+
+								],
+								"bcc": [
+
+								],
+								"subject": "{{version.project.key}} version {{version.name}} is released!",
+								"body": "We have just released Version <strong>{{version.name}}</strong> for {{version.project.key}}. <br/> This version includes the following fixes and features:\n<ul>\n{{#lookupIssues}}\n  <li>\n    <a href=\"{{url}}\">{{issuetype.name}}: {{key}} - {{summary}}<a/>\n  </li>\n{{/}}\n</ul>\nWe hope you enjoy it!<br/><br/>\nRegards,<br/>\nThe {{version.project.key}} development team\n",
+								"mimeType": "text/html",
+								"convertLineBreaks": false
+							},
+							"children": [
+
+							],
+							"conditions": [
+
+							],
+							"optimisedIds": [
+
+							],
+							"newComponent": false
+						}
+					],
+					"conditions": [
+
+					],
+					"optimisedIds": [
+
+					],
+					"newComponent": false
+				}
+			],
+			"projects": [
+				{
+					"projectId": "10000",
+					"projectTypeKey": "software"
+				}
+			],
+			"labels": [
+
+			],
+			"tags": [
+
+			]
+		}
+	]
+}

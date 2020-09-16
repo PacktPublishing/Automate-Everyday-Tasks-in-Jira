@@ -1,0 +1,81 @@
+{
+	"cloud": false,
+	"rules": [
+		{
+			"id": 20,
+			"clientKey": "com.codebarrel.tenant.global",
+			"name": "Open issues in sprint notification",
+			"state": "ENABLED",
+			"canOtherRuleTrigger": false,
+			"notifyOnError": "FIRSTERROR",
+			"authorAccountId": "admin",
+			"actorAccountId": "admin",
+			"created": 1600249184675,
+			"updated": 1600249211812,
+			"trigger": {
+				"id": "122",
+				"component": "TRIGGER",
+				"schemaVersion": 1,
+				"type": "jira.jql.scheduled",
+				"value": {
+					"schedule": {
+						"cronExpression": "",
+						"method": "FIXED",
+						"rate": 1,
+						"rateInterval": 86400
+					},
+					"jql": "Sprint in openSprints() AND status != Done",
+					"executionMode": "jql",
+					"onlyUpdatedIssues": true,
+					"processIssuesInBulk": true
+				},
+				"children": [
+
+				],
+				"conditions": [
+
+				],
+				"optimisedIds": [
+
+				],
+				"newComponent": false
+			},
+			"components": [
+				{
+					"id": "123",
+					"component": "ACTION",
+					"schemaVersion": 1,
+					"type": "slack.notification",
+					"value": {
+						"webhookUrl": "https://hooks.slack.com/services/xxxxxx",
+						"body": "Hey Team, we still have the following issues left to complete this sprint:\n\n{{#issues}}\n<{{url}}|{{key}} - {{summary}}>\n{{/}}\n\nWe can do this!",
+						"channel": "#sprint-updates",
+						"automationSender": true
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					],
+					"optimisedIds": [
+
+					],
+					"newComponent": false
+				}
+			],
+			"projects": [
+				{
+					"projectId": "10000",
+					"projectTypeKey": "software"
+				}
+			],
+			"labels": [
+
+			],
+			"tags": [
+
+			]
+		}
+	]
+}
