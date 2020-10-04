@@ -1,0 +1,121 @@
+{
+	"rules": [
+		{
+			"id": 1229667,
+			"clientKey": "22d183d6-a2b9-3ebd-a565-98656bba7b25",
+			"name": "In-product bug collector ",
+			"state": "ENABLED",
+			"description": null,
+			"authorAccountId": "557058:bbbd7736-9ab8-4e73-b08e-801eefa636ff",
+			"actor": {
+				"type": "ACCOUNT_ID",
+				"value": "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+			},
+			"created": 1601843854059,
+			"updated": 1601843854059,
+			"trigger": {
+				"id": "23330417",
+				"component": "TRIGGER",
+				"parentId": null,
+				"conditionParentId": null,
+				"schemaVersion": 1,
+				"type": "jira.incoming.webhook",
+				"value": {
+					"webhookToken": "2e3296f2967407297155ebbe3ab0421eb2a0b949",
+					"searchOrProvide": "none",
+					"jql": null
+				},
+				"children": [
+
+				],
+				"conditions": [
+
+				]
+			},
+			"components": [
+				{
+					"id": "23330418",
+					"component": "ACTION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 9,
+					"type": "jira.issue.create",
+					"value": {
+						"operations": [
+							{
+								"field": {
+									"type": "ID",
+									"value": "summary"
+								},
+								"fieldType": "summary",
+								"type": "SET",
+								"value": "{{webhookData.summary}}"
+							},
+							{
+								"field": {
+									"type": "ID",
+									"value": "description"
+								},
+								"fieldType": "description",
+								"type": "SET",
+								"value": "{{webhookData.bugDescription}}"
+							},
+							{
+								"field": {
+									"type": "ID",
+									"value": "project"
+								},
+								"fieldType": "project",
+								"type": "SET",
+								"value": {
+									"value": "current",
+									"type": "COPY"
+								}
+							},
+							{
+								"field": {
+									"type": "ID",
+									"value": "issuetype"
+								},
+								"fieldType": "issuetype",
+								"type": "SET",
+								"value": {
+									"type": "ID",
+									"value": "10004"
+								}
+							}
+						],
+						"advancedFields": "{\n\t\"fields\": {\n\t\t\"versions\": [\n\t\t\t{ \"name\": \"{{webhookData.softwareVersion}}\" }\n\t\t],\n\t\t\"labels\": [\n\t\t\t\"bugfix\",\n\t\t\t\"feedback\"\n\t\t]\n\t}\n}",
+						"sendNotifications": false,
+						"useLegacyRendering": false
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				}
+			],
+			"canOtherRuleTrigger": false,
+			"notifyOnError": "FIRSTERROR",
+			"projects": [
+				{
+					"projectId": "10004",
+					"projectTypeKey": "software"
+				}
+			],
+			"labels": [
+
+			],
+			"tags": [
+				{
+					"id": 785754,
+					"tagType": "WEBHOOK_TOKEN",
+					"tagValue": "2e3296f2967407297155ebbe3ab0421eb2a0b949"
+				}
+			]
+		}
+	],
+	"cloud": true
+}

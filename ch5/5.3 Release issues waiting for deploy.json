@@ -1,0 +1,85 @@
+{
+	"rules": [
+		{
+			"id": 1229504,
+			"clientKey": "22d183d6-a2b9-3ebd-a565-98656bba7b25",
+			"name": "Release issues waiting for deploy",
+			"state": "ENABLED",
+			"description": null,
+			"authorAccountId": "557058:bbbd7736-9ab8-4e73-b08e-801eefa636ff",
+			"actor": {
+				"type": "ACCOUNT_ID",
+				"value": "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+			},
+			"created": 1601838251665,
+			"updated": 1601841586785,
+			"trigger": {
+				"id": "23329567",
+				"component": "TRIGGER",
+				"parentId": null,
+				"conditionParentId": null,
+				"schemaVersion": 1,
+				"type": "jira.incoming.webhook",
+				"value": {
+					"webhookToken": "1403027ba99d68db6c8b9dd687ff53906be60dc4",
+					"searchOrProvide": "search",
+					"jql": "sprint in openSprints() AND status = \"Waiting for deploy\""
+				},
+				"children": [
+
+				],
+				"conditions": [
+
+				]
+			},
+			"components": [
+				{
+					"id": "23329568",
+					"component": "ACTION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 9,
+					"type": "jira.issue.transition",
+					"value": {
+						"operations": [
+
+						],
+						"advancedFields": "{\n    \"update\": {\n        \"comment\": [\n            {\n                \"add\": {\n                    \"body\": \"Issue automatically resolved by build system\"\n                }\n            }\n        ]\n    }\n}\n",
+						"sendNotifications": true,
+						"useLegacyRendering": false,
+						"destinationStatus": {
+							"type": "NAME",
+							"value": "Done"
+						},
+						"transitionMatch": ""
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				}
+			],
+			"canOtherRuleTrigger": false,
+			"notifyOnError": "FIRSTERROR",
+			"projects": [
+				{
+					"projectId": "10004",
+					"projectTypeKey": "software"
+				}
+			],
+			"labels": [
+
+			],
+			"tags": [
+				{
+					"id": 785671,
+					"tagType": "WEBHOOK_TOKEN",
+					"tagValue": "1403027ba99d68db6c8b9dd687ff53906be60dc4"
+				}
+			]
+		}
+	],
+	"cloud": true
+}

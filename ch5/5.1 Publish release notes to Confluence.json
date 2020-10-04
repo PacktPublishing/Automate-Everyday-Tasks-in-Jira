@@ -1,0 +1,113 @@
+{
+	"rules": [
+		{
+			"id": 1229302,
+			"clientKey": "22d183d6-a2b9-3ebd-a565-98656bba7b25",
+			"name": "Publish release notes to Confluence",
+			"state": "ENABLED",
+			"description": null,
+			"authorAccountId": "557058:bbbd7736-9ab8-4e73-b08e-801eefa636ff",
+			"actor": {
+				"type": "ACCOUNT_ID",
+				"value": "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+			},
+			"created": 1601824094546,
+			"updated": 1601824094546,
+			"trigger": {
+				"id": "23323224",
+				"component": "TRIGGER",
+				"parentId": null,
+				"conditionParentId": null,
+				"schemaVersion": 1,
+				"type": "jira.version.event.trigger:released",
+				"value": {
+					"versionNameFilter": ""
+				},
+				"children": [
+
+				],
+				"conditions": [
+
+				]
+			},
+			"components": [
+				{
+					"id": "23323225",
+					"component": "ACTION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 1,
+					"type": "jira.lookup.issues",
+					"value": {
+						"id": "_customsmartvalue_id_1601818348223",
+						"name": {
+							"type": "FREE",
+							"value": "lookupIssues"
+						},
+						"type": "JQL",
+						"query": {
+							"type": "SMART",
+							"value": "fixVersion = {{version.name}}"
+						},
+						"lazy": false
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				},
+				{
+					"id": "23323226",
+					"component": "ACTION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 1,
+					"type": "jira.issue.outgoing.webhook",
+					"value": {
+						"url": "https://<your_site>.atlassian.net/wiki/rest/api/content",
+						"headers": [
+							{
+								"id": "_header_1601818371619",
+								"name": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"id": "_header_1601819059817",
+								"name": "Authorization",
+								"value": "Basic <your base64-encoded credentials>"
+							}
+						],
+						"sendIssue": false,
+						"contentType": "custom",
+						"customBody": "{\n\t\"type\": \"page\",\n\t\"title\": \"Version {{version.name.jsonEncode}}\",\n\t\"space\": {\n\t\t\"key\": \"MA\"\n\t},\n\t\"ancestors\": [\n\t\t{\n\t\t\t\"id\": \"33051\"\n\t\t}\n\t],\n\t\"body\": {\n\t\t\"storage\": {\n\t\t\t\"value\": \"<table data-layout=\\\"default\\\"><colgroup><col style=\\\"width: 212.0px;\\\" /><col style=\\\"width: 416.0px;\\\" /></colgroup><tbody><tr><th><p><strong>Version</strong></p></th><td><p>{{version.name.jsonEncode}}</p></td></tr><tr><th><p><strong>Release Date</strong></p></th><td><p>{{version.releaseDate.jiraDate}}</p></td></tr><tr><th><p><strong>Issues in this release</strong></p></th><td><p>{{lookupIssues.size}}</p></td></tr></tbody></table><h1>Summary</h1><p>{{version.description.jsonEncode}}</p><h1>Issues</h1><p>This release contains the following updates and fixes:</p><ul>{{#lookupIssues}}<li><p>{{key}} - {{summary.jsonEncode}}</p></li>{{/}}</ul>\",\n\t\t\t\"representation\": \"storage\"\n\t\t}\n\t}\n}",
+						"method": "POST",
+						"responseEnabled": false
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				}
+			],
+			"canOtherRuleTrigger": false,
+			"notifyOnError": "FIRSTERROR",
+			"projects": [
+				{
+					"projectId": "10004",
+					"projectTypeKey": "software"
+				}
+			],
+			"labels": [
+
+			],
+			"tags": [
+
+			]
+		}
+	],
+	"cloud": true
+}

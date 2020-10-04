@@ -1,0 +1,182 @@
+{
+	"rules": [
+		{
+			"id": 999527,
+			"clientKey": "22d183d6-a2b9-3ebd-a565-98656bba7b25",
+			"name": "Add watchers to Highest priority incidents",
+			"state": "ENABLED",
+			"description": null,
+			"authorAccountId": "557058:bbbd7736-9ab8-4e73-b08e-801eefa636ff",
+			"actor": {
+				"type": "ACCOUNT_ID",
+				"value": "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+			},
+			"created": 1596201995562,
+			"updated": 1601829018398,
+			"trigger": {
+				"id": "23326078",
+				"component": "TRIGGER",
+				"parentId": null,
+				"conditionParentId": null,
+				"schemaVersion": 1,
+				"type": "jira.multiple.issue.event",
+				"value": {
+					"eventKey": null,
+					"issueEvent": null,
+					"events": [
+						{
+							"id": null,
+							"key": "jira:issue_created",
+							"event": "issue_created",
+							"labelKey": null,
+							"system": false
+						},
+						{
+							"id": null,
+							"key": "jira:issue_updated",
+							"event": "issue_updated",
+							"labelKey": null,
+							"system": false
+						}
+					]
+				},
+				"children": [
+
+				],
+				"conditions": [
+
+				]
+			},
+			"components": [
+				{
+					"id": "23326079",
+					"component": "CONDITION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 3,
+					"type": "jira.issue.condition",
+					"value": {
+						"selectedField": {
+							"type": "ID",
+							"value": "issuetype"
+						},
+						"selectedFieldType": "issuetype",
+						"comparison": "EQUALS",
+						"compareValue": {
+							"type": "ID",
+							"modifier": null,
+							"value": "10011",
+							"multiValue": false,
+							"source": null
+						}
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				},
+				{
+					"id": "23326080",
+					"component": "CONDITION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 3,
+					"type": "jira.issue.condition",
+					"value": {
+						"selectedField": {
+							"type": "ID",
+							"value": "priority"
+						},
+						"selectedFieldType": "priority",
+						"comparison": "EQUALS",
+						"compareValue": {
+							"type": "ID",
+							"modifier": null,
+							"value": "1",
+							"multiValue": false,
+							"source": null
+						}
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				},
+				{
+					"id": "23326081",
+					"component": "ACTION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 1,
+					"type": "jira.issue.outgoing.webhook",
+					"value": {
+						"url": "https://<your_site>.atlassian.net/rest/api/3/group/member?groupname=VIP",
+						"headers": [
+							{
+								"id": "_header_1596201078325",
+								"name": "Authorization",
+								"value": "Basic <your base64-encoded credentials>"
+							}
+						],
+						"sendIssue": false,
+						"contentType": "empty",
+						"customBody": null,
+						"method": "GET",
+						"responseEnabled": true
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				},
+				{
+					"id": "23326082",
+					"component": "ACTION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 2,
+					"type": "jira.issue.add.watcher",
+					"value": {
+						"watchers": [
+							{
+								"type": "SMART",
+								"value": "{{webhookResponse.body.values.accountId}}"
+							}
+						],
+						"removeWatchers": [
+
+						],
+						"removeAll": false
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				}
+			],
+			"canOtherRuleTrigger": false,
+			"notifyOnError": "FIRSTERROR",
+			"projects": [
+				{
+					"projectId": "10003",
+					"projectTypeKey": "service_desk"
+				}
+			],
+			"labels": [
+
+			],
+			"tags": [
+
+			]
+		}
+	],
+	"cloud": true
+}
