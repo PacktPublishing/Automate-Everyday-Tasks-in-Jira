@@ -1,0 +1,270 @@
+{
+	"rules": [
+		{
+			"id": 1281584,
+			"clientKey": "22d183d6-a2b9-3ebd-a565-98656bba7b25",
+			"name": "Route incoming requests",
+			"state": "ENABLED",
+			"description": null,
+			"authorAccountId": "557058:bbbd7736-9ab8-4e73-b08e-801eefa636ff",
+			"actor": {
+				"type": "ACCOUNT_ID",
+				"value": "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+			},
+			"created": 1603031055559,
+			"updated": 1603031055559,
+			"trigger": {
+				"id": "24432456",
+				"component": "TRIGGER",
+				"parentId": null,
+				"conditionParentId": null,
+				"schemaVersion": 1,
+				"type": "jira.multiple.issue.event",
+				"value": {
+					"eventKey": null,
+					"issueEvent": null,
+					"events": [
+						{
+							"id": null,
+							"key": "jira:issue_created",
+							"event": "issue_created",
+							"labelKey": null,
+							"system": false
+						},
+						{
+							"id": null,
+							"key": "jira:issue_updated",
+							"event": "issue_updated",
+							"labelKey": null,
+							"system": false
+						}
+					]
+				},
+				"children": [
+
+				],
+				"conditions": [
+
+				]
+			},
+			"components": [
+				{
+					"id": "24432457",
+					"component": "CONDITION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 1,
+					"type": "jira.condition.container.block",
+					"value": null,
+					"children": [
+						{
+							"id": "24432458",
+							"component": "CONDITION_BLOCK",
+							"parentId": null,
+							"conditionParentId": null,
+							"schemaVersion": 1,
+							"type": "jira.condition.if.block",
+							"value": {
+								"conditionMatchType": "ALL"
+							},
+							"children": [
+								{
+									"id": "24432460",
+									"component": "ACTION",
+									"parentId": null,
+									"conditionParentId": null,
+									"schemaVersion": 3,
+									"type": "jira.issue.assign",
+									"value": {
+										"assignType": "GROUP",
+										"smartValue": null,
+										"jql": null,
+										"issueToCopy": null,
+										"fieldToCopy": null,
+										"listAssignMethod": null,
+										"assignee": null,
+										"restrictedToGroup": null,
+										"group": {
+											"type": "ID",
+											"value": "Network Team"
+										},
+										"role": null,
+										"excludedUsers": [
+
+										],
+										"userList": [
+
+										]
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							],
+							"conditions": [
+								{
+									"id": "24432459",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": null,
+									"schemaVersion": 3,
+									"type": "jira.issue.condition",
+									"value": {
+										"selectedField": {
+											"type": "ID",
+											"value": "components"
+										},
+										"selectedFieldType": "components",
+										"comparison": "CONTAINS_ANY",
+										"compareValue": {
+											"type": "NAME",
+											"modifier": null,
+											"value": "[\"VPN Server\"]",
+											"multiValue": true,
+											"source": null
+										}
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							]
+						},
+						{
+							"id": "24432461",
+							"component": "CONDITION_BLOCK",
+							"parentId": null,
+							"conditionParentId": null,
+							"schemaVersion": 1,
+							"type": "jira.condition.if.block",
+							"value": {
+								"conditionMatchType": "ALL"
+							},
+							"children": [
+								{
+									"id": "24432464",
+									"component": "ACTION",
+									"parentId": null,
+									"conditionParentId": null,
+									"schemaVersion": 3,
+									"type": "jira.issue.assign",
+									"value": {
+										"assignType": "GROUP",
+										"smartValue": null,
+										"jql": null,
+										"issueToCopy": null,
+										"fieldToCopy": null,
+										"listAssignMethod": null,
+										"assignee": null,
+										"restrictedToGroup": null,
+										"group": {
+											"type": "ID",
+											"value": "System Administrator Team"
+										},
+										"role": null,
+										"excludedUsers": [
+
+										],
+										"userList": [
+
+										]
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							],
+							"conditions": [
+								{
+									"id": "24432462",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": null,
+									"schemaVersion": 3,
+									"type": "jira.issue.condition",
+									"value": {
+										"selectedField": {
+											"type": "ID",
+											"value": "components"
+										},
+										"selectedFieldType": "components",
+										"comparison": "CONTAINS_ANY",
+										"compareValue": {
+											"type": "NAME",
+											"modifier": null,
+											"value": "[\"Active Directory\"]",
+											"multiValue": true,
+											"source": null
+										}
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								},
+								{
+									"id": "24432463",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": null,
+									"schemaVersion": 3,
+									"type": "jira.issue.condition",
+									"value": {
+										"selectedField": {
+											"type": "ID",
+											"value": "summary"
+										},
+										"selectedFieldType": "summary",
+										"comparison": "NOT_CONTAIN",
+										"compareValue": {
+											"type": "VALUE",
+											"modifier": null,
+											"value": "password",
+											"multiValue": false,
+											"source": null
+										}
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							]
+						}
+					],
+					"conditions": [
+
+					]
+				}
+			],
+			"canOtherRuleTrigger": true,
+			"notifyOnError": "FIRSTERROR",
+			"projects": [
+				{
+					"projectId": "10003",
+					"projectTypeKey": "service_desk"
+				}
+			],
+			"labels": [
+
+			],
+			"tags": [
+
+			]
+		}
+	],
+	"cloud": true
+}

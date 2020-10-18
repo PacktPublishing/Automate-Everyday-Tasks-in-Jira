@@ -1,0 +1,245 @@
+{
+	"rules": [
+		{
+			"id": 1281923,
+			"clientKey": "22d183d6-a2b9-3ebd-a565-98656bba7b25",
+			"name": "Time to first response monitor",
+			"state": "ENABLED",
+			"description": null,
+			"authorAccountId": "557058:bbbd7736-9ab8-4e73-b08e-801eefa636ff",
+			"actor": {
+				"type": "ACCOUNT_ID",
+				"value": "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+			},
+			"created": 1603050807726,
+			"updated": 1603050807726,
+			"trigger": {
+				"id": "24438032",
+				"component": "TRIGGER",
+				"parentId": null,
+				"conditionParentId": null,
+				"schemaVersion": 1,
+				"type": "jira.sla.threshold.trigger",
+				"value": {
+					"customFieldId": "customfield_10034",
+					"thresholdType": "WILL_BREACH",
+					"thresholdValue": 1800000
+				},
+				"children": [
+
+				],
+				"conditions": [
+
+				]
+			},
+			"components": [
+				{
+					"id": "24438033",
+					"component": "CONDITION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 3,
+					"type": "jira.issue.condition",
+					"value": {
+						"selectedField": {
+							"type": "ID",
+							"value": "priority"
+						},
+						"selectedFieldType": "priority",
+						"comparison": "ONE_OF",
+						"compareValue": {
+							"type": "ID",
+							"modifier": null,
+							"value": "[\"1\",\"2\"]",
+							"multiValue": true,
+							"source": null
+						}
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				},
+				{
+					"id": "24438034",
+					"component": "ACTION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 3,
+					"type": "jira.issue.outgoing.email",
+					"value": {
+						"from": "",
+						"fromName": "",
+						"replyTo": "",
+						"to": [
+							{
+								"type": "COPY",
+								"value": "customfield_10057"
+							}
+						],
+						"cc": [
+
+						],
+						"bcc": [
+
+						],
+						"subject": "{{issue.key}} is about to breach its SLA",
+						"body": "An unassigned high-priority issue, {{issue.key}} - {{issue.summary}} is about to breach its \"Time to first response\" SLA in 30 minutes.\n\nA notification has also been sent to the #service-desk Slack channel.\n\nRegards,\nYour friendly SLA bot.",
+						"mimeType": "text/html",
+						"convertLineBreaks": true
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				},
+				{
+					"id": "24438035",
+					"component": "CONDITION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 1,
+					"type": "jira.condition.container.block",
+					"value": null,
+					"children": [
+						{
+							"id": "24438036",
+							"component": "CONDITION_BLOCK",
+							"parentId": null,
+							"conditionParentId": null,
+							"schemaVersion": 1,
+							"type": "jira.condition.if.block",
+							"value": {
+								"conditionMatchType": "ALL"
+							},
+							"children": [
+								{
+									"id": "24438038",
+									"component": "ACTION",
+									"parentId": null,
+									"conditionParentId": null,
+									"schemaVersion": 1,
+									"type": "slack.notification",
+									"value": {
+										"webhookUrl": "https://hooks.slack.com/services/xxxxxx",
+										"body": ":fire: <{{issue.toUrl}}|{{issue.key}} - {{issue.summary}}> is currently unassigned and will breach its 'Time to first response' SLA in 30 minutes.",
+										"channel": "#service-desk",
+										"automationSender": true
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							],
+							"conditions": [
+								{
+									"id": "24438037",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": null,
+									"schemaVersion": 3,
+									"type": "jira.issue.condition",
+									"value": {
+										"selectedField": {
+											"type": "ID",
+											"value": "assignee"
+										},
+										"selectedFieldType": "assignee",
+										"comparison": "EMPTY",
+										"compareValue": null
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							]
+						},
+						{
+							"id": "24438039",
+							"component": "CONDITION_BLOCK",
+							"parentId": null,
+							"conditionParentId": null,
+							"schemaVersion": 1,
+							"type": "jira.condition.if.block",
+							"value": {
+								"conditionMatchType": "ALL"
+							},
+							"children": [
+								{
+									"id": "24438040",
+									"component": "ACTION",
+									"parentId": null,
+									"conditionParentId": null,
+									"schemaVersion": 3,
+									"type": "jira.issue.outgoing.email",
+									"value": {
+										"from": "",
+										"fromName": "",
+										"replyTo": "",
+										"to": [
+											{
+												"type": "COPY",
+												"value": "assignee"
+											}
+										],
+										"cc": [
+
+										],
+										"bcc": [
+
+										],
+										"subject": "{{issue.key}} is about to breach its Time to first response SLA",
+										"body": "Hi {{issue.assignee.displayName.split(\" \").first}},\n\nYou have been assigned {{issue.key}} - {{issue.summary}} which is about to breach its Time to first response SLA in 30 minutes.\n\nPlease take appropriate action to ensure we meet our SLA targets.\n\nThanks,\nYour friendly SLA bot.",
+										"mimeType": "text/html",
+										"convertLineBreaks": true
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							],
+							"conditions": [
+
+							]
+						}
+					],
+					"conditions": [
+
+					]
+				}
+			],
+			"canOtherRuleTrigger": false,
+			"notifyOnError": "FIRSTERROR",
+			"projects": [
+				{
+					"projectId": "10003",
+					"projectTypeKey": "service_desk"
+				}
+			],
+			"labels": [
+
+			],
+			"tags": [
+				{
+					"id": 825806,
+					"tagType": "POLLING",
+					"tagValue": null
+				}
+			]
+		}
+	],
+	"cloud": true
+}

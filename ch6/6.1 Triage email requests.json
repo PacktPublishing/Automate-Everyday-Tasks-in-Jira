@@ -1,0 +1,254 @@
+{
+	"rules": [
+		{
+			"id": 1281470,
+			"clientKey": "22d183d6-a2b9-3ebd-a565-98656bba7b25",
+			"name": "Triage email requests",
+			"state": "ENABLED",
+			"description": null,
+			"authorAccountId": "557058:bbbd7736-9ab8-4e73-b08e-801eefa636ff",
+			"actor": {
+				"type": "ACCOUNT_ID",
+				"value": "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+			},
+			"created": 1603027744069,
+			"updated": 1603027744069,
+			"trigger": {
+				"id": "24430828",
+				"component": "TRIGGER",
+				"parentId": null,
+				"conditionParentId": null,
+				"schemaVersion": 1,
+				"type": "jira.issue.event.trigger:created",
+				"value": {
+					"eventKey": "jira:issue_created",
+					"issueEvent": "issue_created"
+				},
+				"children": [
+
+				],
+				"conditions": [
+
+				]
+			},
+			"components": [
+				{
+					"id": "24430829",
+					"component": "CONDITION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 3,
+					"type": "jira.issue.condition",
+					"value": {
+						"selectedField": {
+							"type": "NAME",
+							"value": "Request Type"
+						},
+						"selectedFieldType": "com.atlassian.servicedesk:vp-origin",
+						"comparison": "EQUALS",
+						"compareValue": {
+							"type": "NAME",
+							"modifier": null,
+							"value": "Emailed request",
+							"multiValue": false,
+							"source": null
+						}
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				},
+				{
+					"id": "24430830",
+					"component": "CONDITION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 1,
+					"type": "jira.condition.container.block",
+					"value": null,
+					"children": [
+						{
+							"id": "24430831",
+							"component": "CONDITION_BLOCK",
+							"parentId": null,
+							"conditionParentId": null,
+							"schemaVersion": 1,
+							"type": "jira.condition.if.block",
+							"value": {
+								"conditionMatchType": "ALL"
+							},
+							"children": [
+								{
+									"id": "24430833",
+									"component": "ACTION",
+									"parentId": null,
+									"conditionParentId": null,
+									"schemaVersion": 10,
+									"type": "jira.issue.edit",
+									"value": {
+										"operations": [
+											{
+												"field": {
+													"type": "ID",
+													"value": "components"
+												},
+												"fieldType": "components",
+												"type": "SET",
+												"value": [
+													{
+														"type": "NAME",
+														"value": "VPN Server"
+													}
+												]
+											}
+										],
+										"advancedFields": null,
+										"sendNotifications": true,
+										"useLegacyRendering": false
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							],
+							"conditions": [
+								{
+									"id": "24430832",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": null,
+									"schemaVersion": 3,
+									"type": "jira.issue.condition",
+									"value": {
+										"selectedField": {
+											"type": "ID",
+											"value": "summary"
+										},
+										"selectedFieldType": "summary",
+										"comparison": "CONTAINS",
+										"compareValue": {
+											"type": "VALUE",
+											"modifier": null,
+											"value": "vpn",
+											"multiValue": false,
+											"source": null
+										}
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							]
+						},
+						{
+							"id": "24430834",
+							"component": "CONDITION_BLOCK",
+							"parentId": null,
+							"conditionParentId": null,
+							"schemaVersion": 1,
+							"type": "jira.condition.if.block",
+							"value": {
+								"conditionMatchType": "ALL"
+							},
+							"children": [
+								{
+									"id": "24430836",
+									"component": "ACTION",
+									"parentId": null,
+									"conditionParentId": null,
+									"schemaVersion": 10,
+									"type": "jira.issue.edit",
+									"value": {
+										"operations": [
+											{
+												"field": {
+													"type": "ID",
+													"value": "components"
+												},
+												"fieldType": "components",
+												"type": "SET",
+												"value": [
+													{
+														"type": "NAME",
+														"value": "Active Directory"
+													}
+												]
+											}
+										],
+										"advancedFields": null,
+										"sendNotifications": true,
+										"useLegacyRendering": false
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							],
+							"conditions": [
+								{
+									"id": "24430835",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": null,
+									"schemaVersion": 3,
+									"type": "jira.issue.condition",
+									"value": {
+										"selectedField": {
+											"type": "ID",
+											"value": "summary"
+										},
+										"selectedFieldType": "summary",
+										"comparison": "CONTAINS",
+										"compareValue": {
+											"type": "VALUE",
+											"modifier": null,
+											"value": "password",
+											"multiValue": false,
+											"source": null
+										}
+									},
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							]
+						}
+					],
+					"conditions": [
+
+					]
+				}
+			],
+			"canOtherRuleTrigger": false,
+			"notifyOnError": "FIRSTERROR",
+			"projects": [
+				{
+					"projectId": "10003",
+					"projectTypeKey": "service_desk"
+				}
+			],
+			"labels": [
+
+			],
+			"tags": [
+
+			]
+		}
+	],
+	"cloud": true
+}
