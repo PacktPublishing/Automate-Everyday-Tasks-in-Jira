@@ -40,7 +40,7 @@
 					"schemaVersion": 1,
 					"type": "jira.comparator.condition",
 					"value": {
-						"first": "{{#changelog.assignee}}{{fromString}}{{/}}",
+						"first": "{{changelog.assignee.fromString}}",
 						"second": "",
 						"operator": "EQUALS"
 					},

@@ -53,8 +53,8 @@
 					"type": "jira.comparator.condition",
 					"value": {
 						"first": "{{issue.comments.last.body.trim.toLowercase}}",
-						"second": "thank you",
-						"operator": "CONTAINS"
+						"second": "thank\\s+you",
+						"operator": "REGEX_CONTAINS"
 					},
 					"children": [
 
