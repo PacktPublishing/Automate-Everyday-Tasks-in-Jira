@@ -1,0 +1,305 @@
+{
+	"rules": [
+		{
+			"id": 1356296,
+			"clientKey": "22d183d6-a2b9-3ebd-a565-98656bba7b25",
+			"name": "Add critical bug to active sprint",
+			"state": "ENABLED",
+			"description": null,
+			"authorAccountId": "557058:bbbd7736-9ab8-4e73-b08e-801eefa636ff",
+			"actor": {
+				"type": "ACCOUNT_ID",
+				"value": "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+			},
+			"created": 1604520218610,
+			"updated": 1604522093459,
+			"trigger": {
+				"id": "25920058",
+				"component": "TRIGGER",
+				"parentId": null,
+				"conditionParentId": null,
+				"schemaVersion": 1,
+				"type": "jira.issue.event.trigger:transitioned",
+				"value": {
+					"eventKey": "jira:issue_updated",
+					"issueEvent": "issue_generic",
+					"fromStatus": [
+						{
+							"type": "NAME",
+							"value": "Open"
+						}
+					],
+					"toStatus": [
+						{
+							"type": "NAME",
+							"value": "In Progress"
+						}
+					]
+				},
+				"children": [
+
+				],
+				"conditions": [
+
+				]
+			},
+			"components": [
+				{
+					"id": "25920059",
+					"component": "CONDITION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 3,
+					"type": "jira.issue.condition",
+					"value": {
+						"selectedField": {
+							"type": "ID",
+							"value": "project"
+						},
+						"selectedFieldType": "project",
+						"comparison": "EQUALS",
+						"compareValue": {
+							"type": "ID",
+							"modifier": null,
+							"value": "10000",
+							"multiValue": false,
+							"source": null
+						}
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				},
+				{
+					"id": "25920060",
+					"component": "CONDITION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 3,
+					"type": "jira.issue.condition",
+					"value": {
+						"selectedField": {
+							"type": "ID",
+							"value": "issuetype"
+						},
+						"selectedFieldType": "issuetype",
+						"comparison": "EQUALS",
+						"compareValue": {
+							"type": "ID",
+							"modifier": null,
+							"value": "10004",
+							"multiValue": false,
+							"source": null
+						}
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				},
+				{
+					"id": "25920061",
+					"component": "CONDITION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 3,
+					"type": "jira.issue.condition",
+					"value": {
+						"selectedField": {
+							"type": "ID",
+							"value": "priority"
+						},
+						"selectedFieldType": "priority",
+						"comparison": "ONE_OF",
+						"compareValue": {
+							"type": "ID",
+							"modifier": null,
+							"value": "[\"1\"]",
+							"multiValue": true,
+							"source": null
+						}
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				},
+				{
+					"id": "25920062",
+					"component": "ACTION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 10,
+					"type": "jira.issue.create",
+					"value": {
+						"operations": [
+							{
+								"field": {
+									"type": "ID",
+									"value": "summary"
+								},
+								"fieldType": "summary",
+								"type": "COPY",
+								"value": {
+									"copyOptions": [
+
+									],
+									"sourceIssue": "current",
+									"sourceField": {
+										"type": "ID",
+										"value": "summary",
+										"fieldType": "summary"
+									}
+								}
+							},
+							{
+								"field": {
+									"type": "ID",
+									"value": "description"
+								},
+								"fieldType": "description",
+								"type": "COPY",
+								"value": {
+									"copyOptions": [
+
+									],
+									"sourceIssue": "current",
+									"sourceField": {
+										"type": "ID",
+										"value": "description",
+										"fieldType": "description"
+									}
+								}
+							},
+							{
+								"field": {
+									"type": "ID",
+									"value": "project"
+								},
+								"fieldType": "project",
+								"type": "SET",
+								"value": {
+									"type": "ID",
+									"value": "10004"
+								}
+							},
+							{
+								"field": {
+									"type": "ID",
+									"value": "issuetype"
+								},
+								"fieldType": "issuetype",
+								"type": "SET",
+								"value": {
+									"value": "current",
+									"type": "COPY"
+								}
+							},
+							{
+								"field": {
+									"type": "ID",
+									"value": "versions"
+								},
+								"fieldType": "versions",
+								"type": "COPY",
+								"value": {
+									"copyOptions": [
+										"ADD"
+									],
+									"sourceIssue": "current",
+									"sourceField": {
+										"type": "ID",
+										"value": "versions",
+										"fieldType": "versions"
+									}
+								}
+							},
+							{
+								"field": {
+									"type": "ID",
+									"value": "issuelinks"
+								},
+								"fieldType": "issuelinks",
+								"type": "SET",
+								"value": {
+									"issue": {
+										"type": "COPY",
+										"value": "trigger"
+									},
+									"linkType": "inward:10003"
+								}
+							},
+							{
+								"field": {
+									"type": "ID",
+									"value": "priority"
+								},
+								"fieldType": "priority",
+								"type": "COPY",
+								"value": {
+									"copyOptions": [
+
+									],
+									"sourceIssue": "current",
+									"sourceField": {
+										"type": "ID",
+										"value": "priority",
+										"fieldType": "priority"
+									}
+								}
+							},
+							{
+								"field": {
+									"type": "NAME",
+									"value": "Sprint"
+								},
+								"fieldType": "com.pyxis.greenhopper.jira:gh-sprint",
+								"type": "SET",
+								"value": {
+									"type": "REFERENCE",
+									"value": "CURRENT",
+									"additional": 3
+								}
+							}
+						],
+						"advancedFields": null,
+						"sendNotifications": false,
+						"useLegacyRendering": false
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				}
+			],
+			"canOtherRuleTrigger": false,
+			"notifyOnError": "FIRSTERROR",
+			"projects": [
+				{
+					"projectId": "10004",
+					"projectTypeKey": "software"
+				},
+				{
+					"projectId": "10000",
+					"projectTypeKey": "software"
+				}
+			],
+			"labels": [
+
+			],
+			"tags": [
+
+			]
+		}
+	],
+	"cloud": true
+}

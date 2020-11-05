@@ -1,0 +1,433 @@
+{
+	"rules": [
+		{
+			"id": 1308883,
+			"clientKey": "22d183d6-a2b9-3ebd-a565-98656bba7b25",
+			"name": "Keep issue hierarchy in sync",
+			"state": "ENABLED",
+			"description": null,
+			"authorAccountId": "557058:bbbd7736-9ab8-4e73-b08e-801eefa636ff",
+			"actor": {
+				"type": "ACCOUNT_ID",
+				"value": "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+			},
+			"created": 1603618644732,
+			"updated": 1603620130501,
+			"trigger": {
+				"id": "24978480",
+				"component": "TRIGGER",
+				"parentId": null,
+				"conditionParentId": null,
+				"schemaVersion": 1,
+				"type": "jira.issue.event.trigger:transitioned",
+				"value": {
+					"eventKey": "jira:issue_updated",
+					"issueEvent": "issue_generic",
+					"fromStatus": [
+
+					],
+					"toStatus": [
+
+					]
+				},
+				"children": [
+
+				],
+				"conditions": [
+
+				]
+			},
+			"components": [
+				{
+					"id": "24978481",
+					"component": "CONDITION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 1,
+					"type": "jira.condition.container.block",
+					"value": null,
+					"children": [
+						{
+							"id": "24978482",
+							"component": "CONDITION_BLOCK",
+							"parentId": "24978481",
+							"conditionParentId": null,
+							"schemaVersion": 1,
+							"type": "jira.condition.if.block",
+							"value": {
+								"conditionMatchType": "ALL"
+							},
+							"children": [
+								{
+									"id": "24978484",
+									"component": "BRANCH",
+									"parentId": "24978482",
+									"conditionParentId": null,
+									"schemaVersion": 1,
+									"type": "jira.issue.related",
+									"value": {
+										"relatedType": "parent",
+										"jql": "",
+										"linkTypes": [
+
+										],
+										"onlyUpdatedIssues": false
+									},
+									"children": [
+										{
+											"id": "24978485",
+											"component": "ACTION",
+											"parentId": "24978484",
+											"conditionParentId": null,
+											"schemaVersion": 10,
+											"type": "jira.issue.transition",
+											"value": {
+												"operations": [
+
+												],
+												"advancedFields": null,
+												"sendNotifications": true,
+												"useLegacyRendering": false,
+												"destinationStatus": {
+													"type": "COPY",
+													"value": "trigger"
+												},
+												"transitionMatch": ""
+											},
+											"children": [
+
+											],
+											"conditions": [
+
+											]
+										}
+									],
+									"conditions": [
+
+									]
+								}
+							],
+							"conditions": [
+								{
+									"id": "24978483",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": "24978482",
+									"schemaVersion": 1,
+									"type": "jira.jql.condition",
+									"value": "issueType = Sub-task AND statusCategory = \"In Progress\"",
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							]
+						},
+						{
+							"id": "24978486",
+							"component": "CONDITION_BLOCK",
+							"parentId": "24978481",
+							"conditionParentId": null,
+							"schemaVersion": 1,
+							"type": "jira.condition.if.block",
+							"value": {
+								"conditionMatchType": "ALL"
+							},
+							"children": [
+								{
+									"id": "24978488",
+									"component": "BRANCH",
+									"parentId": "24978486",
+									"conditionParentId": null,
+									"schemaVersion": 1,
+									"type": "jira.issue.related",
+									"value": {
+										"relatedType": "parent",
+										"jql": "",
+										"linkTypes": [
+
+										],
+										"onlyUpdatedIssues": false
+									},
+									"children": [
+										{
+											"id": "24978489",
+											"component": "CONDITION",
+											"parentId": "24978488",
+											"conditionParentId": null,
+											"schemaVersion": 1,
+											"type": "jira.issues.related.condition",
+											"value": {
+												"relatedType": "subtasks",
+												"linkTypes": [
+
+												],
+												"operator": "allmatch",
+												"relatedJql": "",
+												"compareJql": "statusCategory = Done",
+												"jql": ""
+											},
+											"children": [
+
+											],
+											"conditions": [
+
+											]
+										},
+										{
+											"id": "24978490",
+											"component": "ACTION",
+											"parentId": "24978488",
+											"conditionParentId": null,
+											"schemaVersion": 10,
+											"type": "jira.issue.transition",
+											"value": {
+												"operations": [
+
+												],
+												"advancedFields": null,
+												"sendNotifications": true,
+												"useLegacyRendering": false,
+												"destinationStatus": {
+													"type": "COPY",
+													"value": "trigger"
+												},
+												"transitionMatch": ""
+											},
+											"children": [
+
+											],
+											"conditions": [
+
+											]
+										}
+									],
+									"conditions": [
+
+									]
+								}
+							],
+							"conditions": [
+								{
+									"id": "24978487",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": "24978486",
+									"schemaVersion": 1,
+									"type": "jira.jql.condition",
+									"value": "issueType = Sub-task AND statusCategory = Done",
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							]
+						},
+						{
+							"id": "24978491",
+							"component": "CONDITION_BLOCK",
+							"parentId": "24978481",
+							"conditionParentId": null,
+							"schemaVersion": 1,
+							"type": "jira.condition.if.block",
+							"value": {
+								"conditionMatchType": "ALL"
+							},
+							"children": [
+								{
+									"id": "24978493",
+									"component": "BRANCH",
+									"parentId": "24978491",
+									"conditionParentId": null,
+									"schemaVersion": 1,
+									"type": "jira.issue.related",
+									"value": {
+										"relatedType": "epic",
+										"jql": "",
+										"linkTypes": [
+
+										],
+										"onlyUpdatedIssues": false
+									},
+									"children": [
+										{
+											"id": "24978494",
+											"component": "ACTION",
+											"parentId": "24978493",
+											"conditionParentId": null,
+											"schemaVersion": 10,
+											"type": "jira.issue.transition",
+											"value": {
+												"operations": [
+
+												],
+												"advancedFields": null,
+												"sendNotifications": true,
+												"useLegacyRendering": false,
+												"destinationStatus": {
+													"type": "COPY",
+													"value": "trigger"
+												},
+												"transitionMatch": ""
+											},
+											"children": [
+
+											],
+											"conditions": [
+
+											]
+										}
+									],
+									"conditions": [
+
+									]
+								}
+							],
+							"conditions": [
+								{
+									"id": "24978492",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": "24978491",
+									"schemaVersion": 1,
+									"type": "jira.jql.condition",
+									"value": "issueType = Story AND status = \"In Progress\"",
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							]
+						},
+						{
+							"id": "24978495",
+							"component": "CONDITION_BLOCK",
+							"parentId": "24978481",
+							"conditionParentId": null,
+							"schemaVersion": 1,
+							"type": "jira.condition.if.block",
+							"value": {
+								"conditionMatchType": "ALL"
+							},
+							"children": [
+								{
+									"id": "24978497",
+									"component": "BRANCH",
+									"parentId": "24978495",
+									"conditionParentId": null,
+									"schemaVersion": 1,
+									"type": "jira.issue.related",
+									"value": {
+										"relatedType": "epic",
+										"jql": "",
+										"linkTypes": [
+
+										],
+										"onlyUpdatedIssues": false
+									},
+									"children": [
+										{
+											"id": "24978498",
+											"component": "CONDITION",
+											"parentId": "24978497",
+											"conditionParentId": null,
+											"schemaVersion": 1,
+											"type": "jira.issues.related.condition",
+											"value": {
+												"relatedType": "stories",
+												"linkTypes": [
+
+												],
+												"operator": "allmatch",
+												"relatedJql": "",
+												"compareJql": "statusCategory = Done",
+												"jql": ""
+											},
+											"children": [
+
+											],
+											"conditions": [
+
+											]
+										},
+										{
+											"id": "24978499",
+											"component": "ACTION",
+											"parentId": "24978497",
+											"conditionParentId": null,
+											"schemaVersion": 10,
+											"type": "jira.issue.transition",
+											"value": {
+												"operations": [
+
+												],
+												"advancedFields": null,
+												"sendNotifications": true,
+												"useLegacyRendering": false,
+												"destinationStatus": {
+													"type": "COPY",
+													"value": "trigger"
+												},
+												"transitionMatch": ""
+											},
+											"children": [
+
+											],
+											"conditions": [
+
+											]
+										}
+									],
+									"conditions": [
+
+									]
+								}
+							],
+							"conditions": [
+								{
+									"id": "24978496",
+									"component": "CONDITION",
+									"parentId": null,
+									"conditionParentId": "24978495",
+									"schemaVersion": 1,
+									"type": "jira.jql.condition",
+									"value": "issueType = Story AND statusCategory = Done",
+									"children": [
+
+									],
+									"conditions": [
+
+									]
+								}
+							]
+						}
+					],
+					"conditions": [
+
+					]
+				}
+			],
+			"canOtherRuleTrigger": true,
+			"notifyOnError": "FIRSTERROR",
+			"projects": [
+				{
+					"projectId": "10004",
+					"projectTypeKey": "software"
+				}
+			],
+			"labels": [
+
+			],
+			"tags": [
+
+			]
+		}
+	],
+	"cloud": true
+}
