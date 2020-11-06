@@ -47,7 +47,7 @@
 						"type": "JQL",
 						"query": {
 							"type": "SMART",
-							"value": "fixVersion = {{version.name}}"
+							"value": "fixVersion = \"{{version.name}}\""
 						},
 						"lazy": false
 					},
