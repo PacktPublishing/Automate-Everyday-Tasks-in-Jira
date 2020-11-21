@@ -1,0 +1,212 @@
+{
+	"rules": [
+		{
+			"id": 1406113,
+			"clientKey": "22d183d6-a2b9-3ebd-a565-98656bba7b25",
+			"name": "Start deployment on sprint closure",
+			"state": "ENABLED",
+			"description": null,
+			"authorAccountId": "557058:bbbd7736-9ab8-4e73-b08e-801eefa636ff",
+			"actor": {
+				"type": "ACCOUNT_ID",
+				"value": "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+			},
+			"created": 1605887251850,
+			"updated": 1605887251850,
+			"trigger": {
+				"id": "27303752",
+				"component": "TRIGGER",
+				"parentId": null,
+				"conditionParentId": null,
+				"schemaVersion": 1,
+				"type": "jira.sprint.event.trigger:closed",
+				"value": {
+					"boardId": 3,
+					"sprintNameFilter": ""
+				},
+				"children": [
+
+				],
+				"conditions": [
+
+				]
+			},
+			"components": [
+				{
+					"id": "27303753",
+					"component": "ACTION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 1,
+					"type": "jira.issue.outgoing.webhook",
+					"value": {
+						"url": "https://<you_jenkins_host>/crumbIssuer/api/json",
+						"headers": [
+							{
+								"id": "_header_1605876375581",
+								"name": "Authorization",
+								"value": "Basic xxxxxx"
+							}
+						],
+						"sendIssue": false,
+						"contentType": "empty",
+						"customBody": null,
+						"method": "POST",
+						"responseEnabled": false
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				},
+				{
+					"id": "27303754",
+					"component": "ACTION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 1,
+					"type": "jira.issue.outgoing.webhook",
+					"value": {
+						"url": "https://<your_jenkins_host/job/<your_job_name>/build?token=<YOUR_AUTHORIZATION_TOKEN>",
+						"headers": [
+							{
+								"id": "_header_1605877533530",
+								"name": "Authorization",
+								"value": "Basic xxxxxx"
+							},
+							{
+								"id": "_header_1605885962037",
+								"name": "Jenkins-Crumb",
+								"value": "{{webhookResponse.body.crumb}}"
+							}
+						],
+						"sendIssue": false,
+						"contentType": "empty",
+						"customBody": null,
+						"method": "POST",
+						"responseEnabled": true
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				},
+				{
+					"id": "27303755",
+					"component": "CONDITION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 1,
+					"type": "jira.comparator.condition",
+					"value": {
+						"first": "{{webhookResponse.status}}",
+						"second": "2\\d\\d",
+						"operator": "REGEX_MATCHES"
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				},
+				{
+					"id": "27303756",
+					"component": "BRANCH",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 1,
+					"type": "jira.issue.related",
+					"value": {
+						"relatedType": "sprint",
+						"jql": "",
+						"linkTypes": [
+
+						],
+						"onlyUpdatedIssues": false
+					},
+					"children": [
+						{
+							"id": "27303757",
+							"component": "CONDITION",
+							"parentId": null,
+							"conditionParentId": null,
+							"schemaVersion": 3,
+							"type": "jira.issue.condition",
+							"value": {
+								"selectedField": {
+									"type": "ID",
+									"value": "status"
+								},
+								"selectedFieldType": "status",
+								"comparison": "EQUALS",
+								"compareValue": {
+									"type": "NAME",
+									"modifier": null,
+									"value": "Waiting for deploy",
+									"multiValue": false,
+									"source": null
+								}
+							},
+							"children": [
+
+							],
+							"conditions": [
+
+							]
+						},
+						{
+							"id": "27303758",
+							"component": "ACTION",
+							"parentId": null,
+							"conditionParentId": null,
+							"schemaVersion": 10,
+							"type": "jira.issue.transition",
+							"value": {
+								"operations": [
+
+								],
+								"advancedFields": null,
+								"sendNotifications": true,
+								"useLegacyRendering": false,
+								"destinationStatus": {
+									"type": "NAME",
+									"value": "Done"
+								},
+								"transitionMatch": ""
+							},
+							"children": [
+
+							],
+							"conditions": [
+
+							]
+						}
+					],
+					"conditions": [
+
+					]
+				}
+			],
+			"canOtherRuleTrigger": false,
+			"notifyOnError": "FIRSTERROR",
+			"projects": [
+				{
+					"projectId": "10004",
+					"projectTypeKey": "software"
+				}
+			],
+			"labels": [
+
+			],
+			"tags": [
+
+			]
+		}
+	],
+	"cloud": true
+}

@@ -1,0 +1,135 @@
+{
+	"rules": [
+		{
+			"id": 85,
+			"clientKey": "com.codebarrel.tenant.global",
+			"name": "Transition to In Progress on commit",
+			"state": "ENABLED",
+			"canOtherRuleTrigger": false,
+			"notifyOnError": "FIRSTERROR",
+			"authorAccountId": "admin",
+			"actorAccountId": "admin",
+			"created": 1605461649129,
+			"updated": 1605461649129,
+			"trigger": {
+				"id": "252",
+				"component": "TRIGGER",
+				"schemaVersion": 1,
+				"type": "jira.incoming.webhook",
+				"value": {
+					"webhookToken": "a49fedee8551fe11255703ee2be998a121c95678",
+					"searchOrProvide": "search",
+					"jql": "key = {{webhookData.push.changes.first().new.target.message.match(\"([A-Z][A-Z0-9]+-\\d+)\")}}",
+					"processIssuesInBulk": false,
+					"tagValue": "a49fedee8551fe11255703ee2be998a121c95678",
+					"tagType": "WEBHOOK_TOKEN"
+				},
+				"children": [
+
+				],
+				"conditions": [
+
+				],
+				"optimisedIds": [
+
+				],
+				"newComponent": false
+			},
+			"components": [
+				{
+					"id": "253",
+					"component": "ACTION",
+					"schemaVersion": 1,
+					"type": "slack.notification",
+					"value": {
+						"webhookUrl": "https://hooks.slack.com/services/xxxxxx",
+						"body": ":pizza: A commit for <{{issue.url}}|{{issue.key}}> has been added with message {{commit.message}}",
+						"channel": "#sprint-updates",
+						"automationSender": true
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					],
+					"optimisedIds": [
+
+					],
+					"newComponent": false
+				},
+				{
+					"id": "254",
+					"component": "CONDITION",
+					"schemaVersion": 3,
+					"type": "jira.issue.condition",
+					"value": {
+						"selectedField": {
+							"type": "ID",
+							"value": "status"
+						},
+						"comparison": "NOT_EQUAL",
+						"compareValue": {
+							"type": "ID",
+							"value": "3",
+							"multiValue": false
+						}
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					],
+					"optimisedIds": [
+
+					],
+					"newComponent": false
+				},
+				{
+					"id": "255",
+					"component": "ACTION",
+					"schemaVersion": 6,
+					"type": "jira.issue.transition",
+					"value": {
+						"operations": [
+
+						],
+						"sendNotifications": true,
+						"useLegacyRendering": false,
+						"transitionMode": "status",
+						"destinationStatus": {
+							"type": "ID",
+							"value": "3"
+						},
+						"transitionMatch": "",
+						"ignoreConditions": false
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					],
+					"optimisedIds": [
+
+					],
+					"newComponent": false
+				}
+			],
+			"projects": [
+				{
+					"projectId": "10000",
+					"projectTypeKey": "software"
+				}
+			],
+			"labels": [
+
+			],
+			"tags": [
+
+			]
+		}
+	],
+	"cloud": false
+}

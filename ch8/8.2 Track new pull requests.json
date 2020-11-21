@@ -1,0 +1,182 @@
+{
+	"rules": [
+		{
+			"id": 1393851,
+			"clientKey": "22d183d6-a2b9-3ebd-a565-98656bba7b25",
+			"name": "Track new pull requests",
+			"state": "ENABLED",
+			"description": null,
+			"authorAccountId": "557058:bbbd7736-9ab8-4e73-b08e-801eefa636ff",
+			"actor": {
+				"type": "ACCOUNT_ID",
+				"value": "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+			},
+			"created": 1605562256272,
+			"updated": 1605955280863,
+			"trigger": {
+				"id": "27347660",
+				"component": "TRIGGER",
+				"parentId": null,
+				"conditionParentId": null,
+				"schemaVersion": 1,
+				"type": "devops.pr.event.trigger:created",
+				"value": {
+					"tagType": "USES_DEVOPS_INTEGRATION",
+					"tagValue": "PULL_REQUEST"
+				},
+				"children": [
+
+				],
+				"conditions": [
+
+				]
+			},
+			"components": [
+				{
+					"id": "27347661",
+					"component": "ACTION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 10,
+					"type": "jira.issue.transition",
+					"value": {
+						"operations": [
+
+						],
+						"advancedFields": null,
+						"sendNotifications": true,
+						"useLegacyRendering": false,
+						"destinationStatus": {
+							"type": "NAME",
+							"value": "Waiting for review"
+						},
+						"transitionMatch": ""
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				},
+				{
+					"id": "27347662",
+					"component": "ACTION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 10,
+					"type": "jira.issue.create",
+					"value": {
+						"operations": [
+							{
+								"field": {
+									"type": "ID",
+									"value": "summary"
+								},
+								"fieldType": "summary",
+								"type": "SET",
+								"value": "Review PR: {{pullRequeqst.title}}"
+							},
+							{
+								"field": {
+									"type": "ID",
+									"value": "description"
+								},
+								"fieldType": "description",
+								"type": "SET",
+								"value": "Review is require for PR: {{pullRequest.title}}\n\nSource branch: {{pullRequest.sourceBranch}}\nDestination branch: {{pullRequest.destinationBranch}}\n\nAccess the PR here: {{pullRequest.url}}"
+							},
+							{
+								"field": {
+									"type": "ID",
+									"value": "project"
+								},
+								"fieldType": "project",
+								"type": "SET",
+								"value": {
+									"value": "current",
+									"type": "COPY"
+								}
+							},
+							{
+								"field": {
+									"type": "ID",
+									"value": "issuetype"
+								},
+								"fieldType": "issuetype",
+								"type": "SET",
+								"value": {
+									"value": "current",
+									"type": "COPY"
+								}
+							},
+							{
+								"field": {
+									"type": "ID",
+									"value": "issuelinks"
+								},
+								"fieldType": "issuelinks",
+								"type": "SET",
+								"value": {
+									"issue": {
+										"type": "COPY",
+										"value": "trigger"
+									},
+									"linkType": "outward:10000"
+								}
+							}
+						],
+						"advancedFields": null,
+						"sendNotifications": false,
+						"useLegacyRendering": false
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				},
+				{
+					"id": "27347663",
+					"component": "ACTION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 1,
+					"type": "slack.notification",
+					"value": {
+						"webhookUrl": "https://hooks.slack.com/services/xxxxxx",
+						"body": ":bellhop_bell: A new pull request has is ready for review <{{createdIssue.url}}|{{createdIssue.key}}",
+						"channel": "#sprint-updates",
+						"automationSender": true
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				}
+			],
+			"canOtherRuleTrigger": false,
+			"notifyOnError": "FIRSTERROR",
+			"projects": [
+				{
+					"projectId": "10004",
+					"projectTypeKey": "software"
+				}
+			],
+			"labels": [
+
+			],
+			"tags": [
+				{
+					"id": 928128,
+					"tagType": "USES_DEVOPS_INTEGRATION",
+					"tagValue": "PULL_REQUEST"
+				}
+			]
+		}
+	],
+	"cloud": true
+}

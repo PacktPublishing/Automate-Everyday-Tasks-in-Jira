@@ -1,0 +1,134 @@
+{
+	"rules": [
+		{
+			"id": 1391014,
+			"clientKey": "22d183d6-a2b9-3ebd-a565-98656bba7b25",
+			"name": "Transition to In Progress on commit",
+			"state": "ENABLED",
+			"description": null,
+			"authorAccountId": "557058:bbbd7736-9ab8-4e73-b08e-801eefa636ff",
+			"actor": {
+				"type": "ACCOUNT_ID",
+				"value": "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+			},
+			"created": 1605458841221,
+			"updated": 1605461237856,
+			"trigger": {
+				"id": "26782065",
+				"component": "TRIGGER",
+				"parentId": null,
+				"conditionParentId": null,
+				"schemaVersion": 1,
+				"type": "devops.commit.event.trigger:created",
+				"value": {
+					"shouldProcessMergeCommits": false,
+					"tagType": "USES_DEVOPS_INTEGRATION",
+					"tagValue": "COMMIT"
+				},
+				"children": [
+
+				],
+				"conditions": [
+
+				]
+			},
+			"components": [
+				{
+					"id": "26782066",
+					"component": "ACTION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 1,
+					"type": "slack.notification",
+					"value": {
+						"webhookUrl": "https://hooks.slack.com/services/xxxxxx",
+						"body": ":pizza: A commit for <{{issue.url}}|{{issue.key}}> has been added with message {{commit.message}}",
+						"channel": "#sprint-updates",
+						"automationSender": true
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				},
+				{
+					"id": "26782067",
+					"component": "CONDITION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 3,
+					"type": "jira.issue.condition",
+					"value": {
+						"selectedField": {
+							"type": "ID",
+							"value": "status"
+						},
+						"selectedFieldType": "status",
+						"comparison": "NOT_EQUAL",
+						"compareValue": {
+							"type": "NAME",
+							"modifier": null,
+							"value": "In Progress",
+							"multiValue": false,
+							"source": null
+						}
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				},
+				{
+					"id": "26782068",
+					"component": "ACTION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 10,
+					"type": "jira.issue.transition",
+					"value": {
+						"operations": [
+
+						],
+						"advancedFields": null,
+						"sendNotifications": true,
+						"useLegacyRendering": false,
+						"destinationStatus": {
+							"type": "NAME",
+							"value": "In Progress"
+						},
+						"transitionMatch": ""
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				}
+			],
+			"canOtherRuleTrigger": false,
+			"notifyOnError": "FIRSTERROR",
+			"projects": [
+				{
+					"projectId": "10004",
+					"projectTypeKey": "software"
+				}
+			],
+			"labels": [
+
+			],
+			"tags": [
+				{
+					"id": 914659,
+					"tagType": "USES_DEVOPS_INTEGRATION",
+					"tagValue": "COMMIT"
+				}
+			]
+		}
+	],
+	"cloud": true
+}

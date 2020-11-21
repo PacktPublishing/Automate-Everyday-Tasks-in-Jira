@@ -1,0 +1,190 @@
+{
+	"rules": [
+		{
+			"id": 1393341,
+			"clientKey": "22d183d6-a2b9-3ebd-a565-98656bba7b25",
+			"name": "Manage pull request merges",
+			"state": "ENABLED",
+			"description": null,
+			"authorAccountId": "557058:bbbd7736-9ab8-4e73-b08e-801eefa636ff",
+			"actor": {
+				"type": "ACCOUNT_ID",
+				"value": "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+			},
+			"created": 1605549204756,
+			"updated": 1605890983499,
+			"trigger": {
+				"id": "27309061",
+				"component": "TRIGGER",
+				"parentId": null,
+				"conditionParentId": null,
+				"schemaVersion": 1,
+				"type": "devops.pr.event.trigger:merged",
+				"value": {
+					"tagType": "USES_DEVOPS_INTEGRATION",
+					"tagValue": "PULL_REQUEST"
+				},
+				"children": [
+
+				],
+				"conditions": [
+
+				]
+			},
+			"components": [
+				{
+					"id": "27309062",
+					"component": "CONDITION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 3,
+					"type": "jira.issue.condition",
+					"value": {
+						"selectedField": {
+							"type": "ID",
+							"value": "status"
+						},
+						"selectedFieldType": "status",
+						"comparison": "EQUALS",
+						"compareValue": {
+							"type": "NAME",
+							"modifier": null,
+							"value": "Waiting for review",
+							"multiValue": false,
+							"source": null
+						}
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				},
+				{
+					"id": "27309063",
+					"component": "ACTION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 10,
+					"type": "jira.issue.transition",
+					"value": {
+						"operations": [
+
+						],
+						"advancedFields": null,
+						"sendNotifications": true,
+						"useLegacyRendering": false,
+						"destinationStatus": {
+							"type": "NAME",
+							"value": "Waiting for deploy"
+						},
+						"transitionMatch": ""
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				},
+				{
+					"id": "27309064",
+					"component": "BRANCH",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 1,
+					"type": "jira.issue.related",
+					"value": {
+						"relatedType": "linked",
+						"jql": "",
+						"linkTypes": [
+							"is blocked by"
+						],
+						"onlyUpdatedIssues": false
+					},
+					"children": [
+						{
+							"id": "27309065",
+							"component": "CONDITION",
+							"parentId": null,
+							"conditionParentId": null,
+							"schemaVersion": 3,
+							"type": "jira.issue.condition",
+							"value": {
+								"selectedField": {
+									"type": "ID",
+									"value": "summary"
+								},
+								"selectedFieldType": "summary",
+								"comparison": "STARTS_WITH",
+								"compareValue": {
+									"type": "VALUE",
+									"modifier": null,
+									"value": "Review PR:",
+									"multiValue": false,
+									"source": null
+								}
+							},
+							"children": [
+
+							],
+							"conditions": [
+
+							]
+						},
+						{
+							"id": "27309066",
+							"component": "ACTION",
+							"parentId": null,
+							"conditionParentId": null,
+							"schemaVersion": 10,
+							"type": "jira.issue.transition",
+							"value": {
+								"operations": [
+
+								],
+								"advancedFields": null,
+								"sendNotifications": true,
+								"useLegacyRendering": false,
+								"destinationStatus": {
+									"type": "NAME",
+									"value": "Done"
+								},
+								"transitionMatch": ""
+							},
+							"children": [
+
+							],
+							"conditions": [
+
+							]
+						}
+					],
+					"conditions": [
+
+					]
+				}
+			],
+			"canOtherRuleTrigger": false,
+			"notifyOnError": "FIRSTERROR",
+			"projects": [
+				{
+					"projectId": "10004",
+					"projectTypeKey": "software"
+				}
+			],
+			"labels": [
+
+			],
+			"tags": [
+				{
+					"id": 927276,
+					"tagType": "USES_DEVOPS_INTEGRATION",
+					"tagValue": "PULL_REQUEST"
+				}
+			]
+		}
+	],
+	"cloud": true
+}
