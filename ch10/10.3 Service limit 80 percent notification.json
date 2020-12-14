@@ -1,0 +1,90 @@
+{
+	"rules": [
+		{
+			"id": 1460601,
+			"clientKey": "22d183d6-a2b9-3ebd-a565-98656bba7b25",
+			"name": "Service limit 80% notification",
+			"state": "ENABLED",
+			"description": null,
+			"authorAccountId": "557058:bbbd7736-9ab8-4e73-b08e-801eefa636ff",
+			"actor": {
+				"type": "ACCOUNT_ID",
+				"value": "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+			},
+			"created": 1607893646899,
+			"updated": 1607893646899,
+			"trigger": {
+				"id": "29137330",
+				"component": "TRIGGER",
+				"parentId": null,
+				"conditionParentId": null,
+				"schemaVersion": 1,
+				"type": "automation.trigger.service.limit",
+				"value": {
+					"limit": 80,
+					"delay": 60
+				},
+				"children": [
+
+				],
+				"conditions": [
+
+				]
+			},
+			"components": [
+				{
+					"id": "29137331",
+					"component": "ACTION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 3,
+					"type": "jira.issue.outgoing.email",
+					"value": {
+						"from": "",
+						"fromName": "",
+						"replyTo": "",
+						"to": [
+							{
+								"type": "REFERENCE",
+								"value": "administrators",
+								"additional": "GROUP"
+							}
+						],
+						"cc": [
+
+						],
+						"bcc": [
+
+						],
+						"subject": "Rules are about to breach their service limits",
+						"body": "There are rules about to breach their 80% processing time limit: {{breachedSummary}}.\n\nThe following rules are about to breach:\n{{breachedRules}}",
+						"mimeType": "text/html",
+						"convertLineBreaks": true
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				}
+			],
+			"canOtherRuleTrigger": false,
+			"notifyOnError": "FIRSTERROR",
+			"projects": [
+
+			],
+			"labels": [
+
+			],
+			"tags": [
+				{
+					"id": 976941,
+					"tagType": "SERVICE_LIMIT_BREACHED",
+					"tagValue": null
+				}
+			]
+		}
+	],
+	"cloud": true
+}
