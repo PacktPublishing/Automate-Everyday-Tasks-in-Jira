@@ -146,7 +146,7 @@
 					"type": "slack.notification",
 					"value": {
 						"webhookUrl": "https://hooks.slack.com/services/xxxxxx",
-						"body": ":bellhop_bell: A new pull request has is ready for review <{{createdIssue.url}}|{{createdIssue.key}}",
+						"body": ":bellhop_bell: A new pull request has is ready for review <{{createdIssue.url}}|{{createdIssue.key}}>",
 						"channel": "#sprint-updates",
 						"automationSender": true
 					},
