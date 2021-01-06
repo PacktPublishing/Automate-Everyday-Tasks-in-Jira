@@ -1,7 +1,7 @@
 {
 	"rules": [
 		{
-			"id": 1487694,
+			"id": 1500010,
 			"clientKey": "22d183d6-a2b9-3ebd-a565-98656bba7b25",
 			"name": "Sync highest priority support bugs",
 			"state": "ENABLED",
@@ -11,10 +11,10 @@
 				"type": "ACCOUNT_ID",
 				"value": "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
 			},
-			"created": 1609167687850,
-			"updated": 1609167687850,
+			"created": 1609872908974,
+			"updated": 1609872908974,
 			"trigger": {
-				"id": "30103225",
+				"id": "30518049",
 				"component": "TRIGGER",
 				"parentId": null,
 				"conditionParentId": null,
@@ -49,13 +49,13 @@
 			},
 			"components": [
 				{
-					"id": "30103226",
+					"id": "30518050",
 					"component": "CONDITION",
 					"parentId": null,
 					"conditionParentId": null,
 					"schemaVersion": 1,
 					"type": "jira.jql.condition",
-					"value": "project = MAPS AND type = Bug AND priority = Highest",
+					"value": "Project = MAPS AND type = Bug AND priority = Highest",
 					"children": [
 
 					],
@@ -64,7 +64,31 @@
 					]
 				},
 				{
-					"id": "30103227",
+					"id": "30518051",
+					"component": "CONDITION",
+					"parentId": null,
+					"conditionParentId": null,
+					"schemaVersion": 1,
+					"type": "jira.issues.related.condition",
+					"value": {
+						"relatedType": "linked",
+						"linkTypes": [
+							"relates to"
+						],
+						"operator": "notpresent",
+						"relatedJql": "",
+						"compareJql": "",
+						"jql": ""
+					},
+					"children": [
+
+					],
+					"conditions": [
+
+					]
+				},
+				{
+					"id": "30518052",
 					"component": "ACTION",
 					"parentId": null,
 					"conditionParentId": null,
@@ -97,8 +121,18 @@
 									"value": "description"
 								},
 								"fieldType": "description",
-								"type": "SET",
-								"value": null
+								"type": "COPY",
+								"value": {
+									"copyOptions": [
+
+									],
+									"sourceIssue": "current",
+									"sourceField": {
+										"type": "ID",
+										"value": "description",
+										"fieldType": "description"
+									}
+								}
 							},
 							{
 								"field": {
