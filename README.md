@@ -65,3 +65,7 @@ We also provide a PDF file that has color images of the screenshots/diagrams use
  is currently working at Square Enix as the ITSM Solution Architect. He has a software engineering background having spent at least 15 years of his 25-year career developing various software solutions for clients.
 For the past 10 years, Gareth has been involved in designing, implementing, and integrating solutions with Jira and other Atlassian tools, most of which have involved automation to varying degrees.
 He has worked on projects like End-to-end ITSM solutions with Jira/Slack and other 3rd party tools, Agile and DevOps implementations in Jira, with integrations to various CI/CD tools.
+### Download a free PDF
+
+ <i>If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost.<br>Simply click on the link to claim your free PDF.</i>
+<p align="center"> <a href="https://packt.link/free-ebook/9781800562868">https://packt.link/free-ebook/9781800562868 </a> </p>
